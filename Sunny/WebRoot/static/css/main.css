@@ -1,0 +1,301 @@
+/*验证器的样式*/
+label.error{
+	color:red;
+}
+/*成功提示*/
+.formMsgTrue{
+	border: 1px solid #1d953f;
+	text-align: center;
+	background: #45b97c;
+	margin-left:300px;
+	width:40%;
+	color:#ffffff;
+	height:40px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-top-top-radius:4px;
+	border-top-bottom-radius:4px;
+	position: absolute;
+	font-size: 20px;
+	padding-top: 15px;
+	cursor: pointer;
+}
+/*失败提示*/
+.formMsgFalse{
+	border: 1px solid #f58f98;
+	text-align: center;
+	background: #f15b6c;
+	margin-left:300px;
+	width:40%;
+	color:#ffffff;
+	height:40px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	border-top-top-radius:4px;
+	border-top-bottom-radius:4px;
+	position: absolute;
+	font-size: 20px;
+	padding-top: 15px;
+	cursor: pointer;
+}
+
+.myradio{
+	margin-left:5px;
+	margin-right:5px;
+	vertical-align:middle;
+}
+
+.test{
+	background:#fff;
+	border: 1px solid #D6D6D6;
+}
+
+.divleft{
+	float: left;
+	width:67%;
+}
+
+.divright{
+	float: right;
+	width:32%;
+	
+}
+.delico{
+	width:18px;
+	height:20px;
+	display: inline-block;
+	background: url("../images/del-24.png") ;
+}
+.editico{
+	width:18px;
+	height:20px;
+	display: inline-block;
+	background: url("../images/edit-24.png") ;
+}
+.tdico{
+	margin-bottom:-5px;
+	margin-top:-5px;
+}
+.shareallico{
+	width:18px;
+	height:20px;
+	display: inline-block;
+	background: url("../images/shareall.gif") ;
+}
+.sharedeptico{
+	width:18px;
+	height:20px;
+	display: inline-block;
+	background: url("../images/sharedept.gif") ;
+}
+.shareoneico{
+	width:18px;
+	height:20px;
+	display: inline-block;
+	background: url("../images/shareone.gif") ;
+}
+
+.fromtable {
+    border: 1px solid #D6D6D6;
+    border-collapse: collapse;
+    clear: both;
+    margin: 10px auto;
+    width: 100%;
+    font-size: 12px;
+}
+
+.fromtable th.top_th {
+   background:url(../images/table_th.jpg) repeat-x 0 0;
+    height: 31px;
+    line-height: 31px;
+    padding: 0;
+}
+
+.fromtable th a em {
+    float: left;
+    font-style: normal;
+}
+
+
+.fromtable th.top_th a {
+    float: left;
+    overflow: hidden;
+}
+.fromtable .tongji {
+    background: url("../images/tj_ico_.jpg") no-repeat 0 center;
+}
+
+
+.fromtable th {
+    background: none repeat scroll 0 0 #F1F1F1;
+    border-top: 1px solid #DFDFDF;
+    padding: 5px 5px 5px 15px;
+    text-align: left;
+}
+
+.fromtable th a {
+    color: #333333;
+    float: left;
+    font-weight: 200;
+    line-height: 28px;
+    padding: 2px 3px 1px 23px;
+}
+
+.fromtable td.fromtd {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #DFDFDF;
+    padding: 8px 8px 8px 8px;
+}
+
+.fromtable td.label{
+	background-color:#f3f3f6;
+	padding-right: 10px;
+	text-align:right;
+	font-family:"Microsoft YaHei";
+	width:80px;
+	font-size: 12px;
+}
+
+.contertable{
+	border: 1px solid #DFDFDF;
+    border-collapse: collapse;
+    clear: both;
+}
+
+.contertable td{
+	border-right:1px solid #DFDFDF;
+	border-top: 1px solid #DFDFDF;
+	padding:8px 8px 8px 15px;
+	font-size:12px;
+}
+
+.text{
+	background: url("../images/input_bg.jpg") ;
+    border-color: #BEBEBE #E1E1E1 #E1E1E1 #BEBEBE;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 5px;
+    margin-right: 10px;
+    padding: 3px;
+    height:22px;
+}
+
+.textarea{
+	background: url("../images/textarea_bg.jpg") ;
+    border-color: #BEBEBE #E1E1E1 #E1E1E1 #BEBEBE;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 5px;
+    margin-right: 10px;
+    padding: 3px;
+}
+
+.file{
+	height:30px;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+.btn {
+  display: inline-block;
+  *display: inline;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  *margin-left: .3em;
+  font-size: 14px;
+  
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  *background-color: #e6e6e6;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  *border: 0;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  *zoom: 1;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #006dcc;
+  *background-color: #0044cc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  font-size: 12px;
+}
+
+.buttondiv{
+	margin-top:10px;
+}
+
+.butlabel{
+	
+}
+
+.myLeftMain{
+	background:#ffffff;
+	float: left;
+	border: 1px solid #AAAAAA;
+	width: 25%;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+}
+
+.myRightMain{
+	background:#ffffff;
+	float: right;
+	border: 1px solid #D6D6D6;
+	width: 74%;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+}
+
+.ajaxTable{
+    border-collapse: collapse;
+    clear: both;
+    width: 100%;
+}
+
+
+.ajaxTable th {
+    background: none repeat scroll 0 0 #F1F1F1;
+    border-bottom: 1px solid #DFDFDF;
+    font-size: 12px;
+    padding: 5px 5px 5px 15px;
+    text-align: left;
+}
+
+
+.ajaxTable td {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #DFDFDF;
+    font-size: 12px;
+    padding: 8px 8px 8px 15px;
+}

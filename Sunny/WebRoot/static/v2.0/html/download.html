@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/sm,min.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+	 <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page birthdaymain">
+            <!-- 标题栏 -->
+
+            <!-- 工具栏 -->
+
+
+            <!-- 这里是页面内容区 -->
+            <div class="content birthdaymain">
+            	<div class="tishi">
+            		*您可从下面的5张图片中选取一张，下载高清照片。
+            	</div>
+            				<div class="rchu">
+				        		<div class="zhaopian">
+				        			<img src="img/tu.png">
+				        			<span class="dizhi">江苏·连云港</span>
+				        			<span class="paisshijian">2017.1.1</span>
+				        			<div class="xiazaianniu">
+				        				<img src="img/xiazai.png">
+				        			</div>
+				        		</div>
+				        		<div class="zhufuhua">
+				        			<p>小红</p>
+				        			<span>还记得我们一起爬武夷山吗？我把你生日这一天
+的日出阳光送给你！祝你生日快乐！</span>
+									<div class="shuming">
+										From陈狗蛋
+									</div>
+				        		</div>
+			       	 	</div>
+        	</div> 
+   </div>
+    <!-- popup, panel 等放在这里 -->
+    
+ <div class="popup popup-youxiang">
+		  <div class="content-block heikuai close-popup"></div>
+			  <div class="baikuang1">
+			  	<div class="shuruyx">
+			  		<span>
+			  			邮箱：
+			  		</span>
+			  		<input type="text" id="youxiang" />
+			  	</div>
+			  	<div class="yanzheng"></div>
+			  	<div class="fasong">我们将会在1个小时内将照片发送到该邮箱</div>
+			  	<div class="queding">确定</div>
+			  </div>
+	</div>
+	 <div class="popup popup-chenggong">
+		  <div class="content-block heikuai close-popup"></div>
+			  <div class="baikuang1">
+			  	<img src=""
+			  	</div>
+
+			  	<div class="fasong"><img src="img/dueigou.png"></div>
+
+			  </div>
+	</div>
+
+    <div class="panel-overlay"></div>
+    <!-- Left Panel with Reveal effect -->
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/sm.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>$.init();</script>
+    <script>
+   	download = {
+    		xuanze : function(){
+    			$(".xiazaianniu").on("click",function(){
+    				 $.popup('.popup-youxiang');
+    			})
+    		},
+    		yanzheng : function(){
+    			$(".queding").on("click",function(){
+				  	$(".yanzheng").empty();
+				  	var passVal = $("#youxiang").val();
+				  	var reg= /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/; 
+					
+							if(passVal == '') {
+									$(".yanzheng").html('<span>邮箱不能为空<span>')
+								} else if(reg.test(passVal)==false){
+									$(".yanzheng").html('<span>邮箱格式不正确</span>')
+								}else{
+									 $.popup('.popup-chenggong');
+								}
+			  })
+    		}
+
+    	}
+   	download.xuanze();
+   	download.yanzheng();
+    </script>
+    
+</body>
+</html>

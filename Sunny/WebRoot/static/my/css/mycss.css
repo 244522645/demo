@@ -1,0 +1,528 @@
+		.body {
+			padding: 0;
+			margin: 0;
+		}
+		
+		.my-card-item {
+			box-sizing: border-box;
+			width: 100%;
+			height: 6rem;
+			margin-top: 0.5rem;
+		}
+		
+		.my-card-item:nth-child(1) {
+			background-color: white;
+		}
+		
+		.my-card-item:nth-child(2) {
+			background-color: wheat;
+		}
+		
+		.my-card-item:nth-child(3) {
+			background-color: burlywood;
+		}
+		
+		.card-right {
+			float: right;
+			width: 5rem;
+			height: 6rem;
+			background: url(../img/fgx.png) no-repeat;
+			background-size: auto 6rem;
+			background-color: #ee5b5b;
+			text-align: center;
+			font-size: 0.7rem;
+			font-family: "微软雅黑";
+			color: white;
+			padding-left: 0.3rem;
+		}
+		.wode-ygk-userd .card-right {
+			background: url(../img/fgx-used.png) no-repeat;
+			background-size: auto 6rem;
+			background-color: #7a7a7a;
+		}
+		.card-right div:nth-child(1) {
+			margin-top: 1.3rem;
+		}
+		
+		.card-right div:nth-child(2) {
+			margin-top: 0rem;
+		}
+		
+		.card-right div:nth-child(3) {
+			margin-top: 0.7rem;
+		}
+		
+		.card-right a {
+			border-radius: 0.3rem;
+			background-color: #f4f4f4;
+			padding: 0.1rem 0.5rem;
+			color: #EE5B5B;
+		}
+		
+		.card-left {
+			position: absolute;
+			right: 5rem;
+			width: 100%;
+			height: 6rem;
+			padding-left: 5rem;
+			background-color: hotpink;
+			background: url(../img/sun1.png), url(../img/rmb.png), url(../img/99.png);
+			background-repeat: no-repeat;
+			background-position: left top;
+			background-position-x: 5.5rem, 8.8rem, 10rem;
+			background-position-y: 0rem, 0.7rem, 1.3rem;
+			background-size: 3rem, 0.8rem, 2.8rem;
+			font-family: "黑体";
+			font-size: 0.75rem;
+		}
+		.wode-ygk-userd .card-left {
+			background: url(../img/sun1.png), url(../img/rmb-used.png), url(../img/99-used.png);
+			background-repeat: no-repeat;
+			background-position: left top;
+			background-position-x: 5.5rem, 8.8rem, 10rem;
+			background-position-y: 0rem, 0.7rem, 1.3rem;
+			background-size: 3rem, 0.8rem, 2.8rem;
+		}
+		.card-number-i {
+			color: red;
+			position: absolute;
+			padding-top: 4.4rem;
+			padding-left: 2rem;
+			list-style: none;
+		}
+		.wode-ygk-userd .card-number-i{
+			color: #7a7a7a;
+		}
+		
+		.liwu {
+			width: 4rem;
+			position: absolute;
+			bottom: 0.2rem;
+			right: 1rem;
+		}
+		
+		.shuxian {
+			width: 1px;
+			height: 5.5rem;
+			background-color: #f4f4f4;
+			float: right;
+			margin-right: 0.7rem;
+			margin-top: 0.25rem;
+		}
+		/*********************************************新版我的************************************/
+		
+		.my-page-top {
+			position: relative;
+			width: auto;
+			height: 13rem;
+			background-color: #EE5B5B;
+			margin-bottom: 0.3rem;
+		}
+		.tx{
+			text-align: center;
+		}
+		.tx img{
+			position: relative;
+			width: 6rem;
+			height: 6rem;
+			border-radius: 50%;
+			top: 3rem;
+			margin: 0 auto;
+		}
+		
+		.my-name {
+			position: relative;
+			font-size: 1rem;
+			font-family: "黑体";
+			color: white;
+			line-height: 1rem;
+			text-align: center;
+			top: 4rem;
+		}
+		
+		.my-item {
+			width: auto;
+			height: 3rem;
+			background-color: white;
+			margin-top: 0.15rem;
+		}
+		
+		.xiaodian {
+			margin-top: 1.2rem;
+			float: left;
+			width: 0.3rem;
+			height: 0.3rem;
+			border-radius: 50%;
+			margin-left: 1rem;
+		}
+		
+		.color-green {
+			background-color: green;
+		}
+		
+		.color-red {
+			background-color: red;
+		}
+		
+		.color-blue {
+			background-color: blue;
+		}
+		
+		.wenzi {
+			float: left;
+			line-height: 3rem;
+			margin-left: 1rem;
+			text-align: center;
+			font-family: 黑体;
+		}
+		
+		.shuzi {
+			float: right;
+			line-height: 3rem;
+			text-align: center;
+			margin-right: 1rem;
+			font-family: 黑体;
+			color: #EE5B5B;
+		}
+		/***********************************我的信件*********************************/
+		/*******************************我收到的信件**************************************/
+		
+		.my-letters-page {
+			position: relative;
+			/*background-color: #fff080;*/
+			padding: 0.3rem 0.3rem;
+			text-align: center;
+		}
+		
+		.letter-time {
+			display: inline-block;
+			padding: 0.2rem 0.5rem;
+			text-align: center;
+			font-family: 黑体;
+			font-size: 0.7rem;
+			background-color: #cfcfcf;
+			margin: 0.2rem auto 0.5rem auto;
+			color: white;
+			border-radius: 0.3rem;
+		}
+		.item-letter-shoudao {
+			width: 14rem;
+			margin-left: 0.5rem;
+			border-radius: 0.8rem;
+			background: url(../img/letter-bottom.png) no-repeat;
+			background-position: bottom;
+			background-color: white;
+			background-size: 100% 0.2rem;
+			height: 6.5rem;
+			margin-top: 0rem;
+			margin-bottom: 1.2rem;
+			clear: both;
+		}
+		
+		.letter-tx-fudiv {
+			position: absolute;
+			padding: 0.15rem;
+			width: 3.7rem;
+			height: 3.7rem;
+			background-color: #f4f4f4;
+			border-radius: 50%;
+			left: 0.2rem;
+			margin-top: -0.5rem;
+			z-index: 3000;
+		}
+		
+		.letter-tx{
+			position: absolute;
+			width: 3.4rem;
+			height: 3.4rem;
+		}
+		.letter-tx img{
+			border: solid aquamarine 0.15rem;
+			width: 3.4rem;
+			height: 3.4rem;
+			background-color: lightsalmon;
+			border-radius: 50%;
+			/* background: url(../img/tx-ldh.jpg) center no-repeat;
+			background-size: 3.5rem; */
+		}
+		.letter-item-top {
+			width: auto;
+		}
+		
+		.div-shoufaxinren {
+			text-align: left;
+			font-size: 0.8rem;
+			font-family: "黑体";
+			position: relative;
+			    width: 10rem;
+    top: 1.5rem;
+    left: 3.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+		}
+		
+		.hengxian {
+			position: relative;
+			top: 2rem;
+			left: 5%;
+			width: 90%;
+			height: 1px;
+			background-color: lightgray;
+		}
+		
+		.letter-item-bottom {
+			width: auto;
+			height: 4rem;
+			float: right;
+			margin-right: 1.5rem;
+		}
+		
+		.letter-item-bottom img {
+			height: 0.9rem;
+			margin-top: 2.4rem;
+			margin-left: 0.5rem;
+		}
+		
+		.xiaohongdian {
+			position: relative;
+			z-index: 3001;
+			width: 0.4rem;
+			height: 0.4rem;
+			border-radius: 50%;
+			background-color: red;
+			float: right;
+			right: 0.5rem;
+			top: 0.5rem;
+		}
+		
+		.yincang {
+			visibility: hidden;
+		}
+		/************************我发出的消息************************************/
+		
+		.item-letter-fachude {
+			float: right;
+			width: 14rem;
+			margin-right: 0.5rem;
+			border-radius: 0.8rem;
+			background: url(../img/letter-bottom.png) no-repeat;
+			background-position: bottom;
+			background-color: white;
+			background-size: 100% 0.2rem;
+			height: 6.5rem;
+			margin-top: 0rem;
+			margin-bottom: 1.2rem;
+			clear: both;
+		}
+		
+		.letter-tx-fudiv-fachude {
+			position: absolute;
+			right: 0;
+			padding: 0.15rem;
+			width: 3.7rem;
+			height: 3.7rem;
+			background-color: #f4f4f4;
+			border-radius: 50%;
+			margin-left: 1rem;
+			right: 0.2rem;
+			margin-top: -0.5rem;
+			z-index: 3000;
+		}
+			.letter-tx-fachude {
+			position: absolute;
+			width: 3.4rem;
+			height: 3.4rem;
+		}
+		
+		.letter-tx-fachude img{
+			border: solid aquamarine 0.15rem;
+			width: 3.4rem;
+			height: 3.4rem;
+			border-radius: 50%;
+		}
+		
+		.letter-item-bottom-fachude {
+			width: auto;
+			height: 4rem;
+			float: left;
+			margin-left: 1.5rem;
+		}
+		
+		.letter-item-bottom-fachude img {
+			height: 0.9rem;
+			margin-top: 2.4rem;
+			margin-right: 0.5rem;
+		}
+		
+		.letter-duifang-weidu {
+			position: absolute;
+			background: url(../img/weidu.png) no-repeat;
+			background-size: 2.5rem;
+			width: 5rem;
+			height: 3rem;
+		}
+		.letter-duifang-yidu {
+			position: absolute;
+			background: url(../img/yidu.png) no-repeat;
+			background-size: 2.5rem;
+			width: 5rem;
+			height: 3rem;
+		}
+		/***************************************祝福列表***********************************/
+		/**********************收到的祝福*******************/
+		
+		.div-zhufuA2B {
+			text-align: center;
+			font-size: 0.8rem;
+			font-family: "黑体";
+			position: relative;
+			width: auto;
+			left: 1.0rem;
+			top: 1rem;
+			 width:  12rem
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+		}
+		
+		.zhufuhengxian {
+			position: relative;
+			top: 2.1rem;
+			left: 5%;
+			width: 90%;
+			height: 1px;
+			background-color: lightgray;
+		}
+		
+		.zhufu-item-bottom {
+			width: auto;
+			height: 4rem;
+			margin-right: 1.5rem;
+		}
+		
+		.zhufu-item-bottom img {
+			float: right;
+			height: 2.3rem;
+			margin-top: 2.4rem;
+			margin-right: -0.5rem;
+		}
+		
+		.div-zhufuyu {
+			text-align: left;
+			margin-top: 2.5rem;
+			float: left;
+			width: 8.4rem;
+			margin-left: 7%;
+			height: 2.3rem;
+			font-size: 0.5rem;
+						    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+		}
+		
+		.item-zhufu-shoudao {
+			clear: both;
+			width: 14rem;
+			margin-left: 0.5rem;
+			border-radius: 0.8rem;
+			background-position: bottom;
+			background-color: white;
+			background-size: 100% 0.2rem;
+			height: 6.5rem;
+			margin-top: 0rem;
+			margin-bottom: 1.2rem;
+		}
+		
+		.item-zhufu{
+			height: 7.7rem;
+		}
+		/************************我发出的祝福************************************/
+		
+		.item-zhufu-fachude {
+			float: right;
+			width: 14rem;
+			margin-right: 0.5rem;
+			border-radius: 0.8rem;
+			background-position: bottom;
+			background-color: white;
+			background-size: 100% 0.2rem;
+			height: 6.5rem;
+			margin-top: 0rem;
+			margin-bottom: 1.2rem;
+			clear: both;
+		}
+		
+		.div-zhufuB2A {
+			text-align: center;
+			font-size: 0.8rem;
+			font-family: "黑体";
+			position: relative;
+			width: auto;
+			left: -0.7rem;
+			top: 1rem;
+						 width:  12rem
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+		}
+		
+		.zhufu-item-bottom-fachude {
+			width: auto;
+			height: 4rem;
+			margin-right: 0.7rem;
+		}
+		
+		.div-zhufuyu-fachude {
+			float: right;
+			text-align: left;
+			margin-top: 2.5rem;
+			width: 8.4rem;
+			/*height: 2.3rem;*/
+			font-size: 0.5rem;
+			    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+		}
+		
+		.zhufu-item-bottom-fachude img {
+			float: left;
+			height: 2.3rem;
+			margin-top: 2.4rem;
+			margin-left: 7%;
+		}
+		
+		.img-nothing {
+			width: 50%;
+			margin-top: 7rem;
+			margin-left: 20%
+		}
+		
+		.p-nothing {
+			text-align: center;
+			font-family: 黑体;
+			font-size: 1rem;
+		}
+		
+		.a-nothing-kankan {
+			display: block;
+			color: white;
+			background-color: #EE5B5B;
+			margin: 0 auto;
+			width: 4.5rem;
+			padding: 0.2rem 0.3rem;
+			border-radius: 0.5rem;
+			border: solid 1px wheat;
+			text-align: center;
+			font-family: 黑体;
+			font-size: 0.7rem;
+		}

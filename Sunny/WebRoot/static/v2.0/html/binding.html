@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/sm,min.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+	 <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page">
+            <!-- 标题栏 -->
+
+            <!-- 工具栏 -->
+
+            <!-- 这里是页面内容区 -->
+            <div class="content">
+			<div class="zixi">
+				请一定要仔细填写
+			</div>
+			<div class="txkh">
+				<div class="khwz">
+					卡号：
+				</div>
+				<div class="khnr">
+					<input type="text" id="kahaoneorong" />
+				</div>
+			</div>
+			<div class="txkh">
+				<div class="khwz">
+					密码：
+				</div>
+				<div class="khnr">
+					<input type="text" id="mimaneirong" />
+				</div>
+			</div>	
+				<div class="tijiaoanniu">确定</div>
+        	</div> 
+   </div>
+    <!-- popup, panel 等放在这里 -->
+    	 <div class="popup popup-shibai">
+		  <div class="content-block heikuai close-popup"></div>
+			  <div class="baikuang2">
+			  	<div class="cuowu"><img src="img/huangdan.png"></div>
+			  	<div class="quedingannniu close-popup">确定</div>
+			  	</div>
+
+			  	
+
+			  </div>
+		<div class="popup popup-chenggong">
+		  <div class="content-block heikuai close-popup"></div>
+			  <div class="baikuang2">
+			  	<div class="duei"><img src="img/xiaolian.png"></div>
+			  	
+			  </div>
+			  </div>
+    <div class="panel-overlay"></div>
+    <!-- Left Panel with Reveal effect -->
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/sm.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>$.init();</script>
+    <script>
+    	   	download = {
+    	   		that:this,
+    		init : function(){
+    			that=this;
+    			$(".tijiaoanniu").on("click",function(){
+    			   that.yanzheng();
+    			})
+    			
+    		},
+    		yanzheng : function(){
+    			 
+				  	
+				  	var AccountVal = $("#kahaoneorong").val();
+				  	var passVal = $("#mimaneirong").val();
+				  	var reg=/^[1-9]\d*$|^0$/; 
+					
+							if(passVal == ''||AccountVal == '') {
+									$.popup('.popup-shibai');
+								} else if(reg.test(AccountVal)==false){
+									$.popup('.popup-shibai');
+								}else{
+									var t =1 ; //ajax 获取
+									if(t==1){
+											$.popup('.popup-chenggong');	
+											}else{
+												$.popup('.popup-shibai');
+											}
+									/*$.ajax({
+										type:"get",
+										url:"",
+										async:true,
+										data:{
+												AccountVal,
+												passVal
+										},
+										success:function(t){
+											
+											if(t==1){
+												
+											}
+											
+										}
+									});*/
+								}
+				 
+    		}
+
+    	}
+
+    	   	download.init();
+    </script>
+</body>
+</html>

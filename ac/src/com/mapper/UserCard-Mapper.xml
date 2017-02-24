@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserCardMapper">
+	<!-- 分页查询角色的返回 -->
+	<resultMap type="Map" id="userMap1">
+		<result column="UserRangeBegin" property="UserRangeBegin" />
+		<result column="UserRangeID" property="UserRangeID" />
+		<result column="UserRangeEnd" property="UserRangEnd" />
+		<result column="UserRangeStatus" property="UserRangeStatus" />
+		<result column="UserRangeName" property="UserRangName" />
+		<result column="username" property="username" />
+		<result column="cardKindsName" property="cardKindsName" />
+		<result column="cardKindsPrice" property="cardKindsPrice" />
+		<result column="cardKindsCost" property="cardKindsCost" />
+	</resultMap>
+	<!-- 查询当前角色下面的卡的返回结果 -->
+	<resultMap type="Map" id="findByUserMap">
+		<result column="UserRangeID" property="UserRangeID" />
+		<result column="UserRangName" property="UserRangName" />
+		<result column="cardKindsDefault" property="cardKindsDefault" />
+		<result column="cardKindsPrice" property="cardKindsPrice" />
+		<result column="cardKindsCost" property="cardKindsCost" />
+		<result column="UserRangeBegin" property="UserRangeBegin"/>
+	</resultMap>
+	<!-- 分页查询角色 -->
+	<select id="findByPage" resultMap="userMap1">
+		SELECT TOP ${rows}
+		a.UserRangeBegin,a.UserRangeID,a.UserRangeEnd,a.UserRangeStatus,a.UserRangeName,u.username,c.cardKindsName,a.cardKindsPrice,a.cardKindsCost
+		FROM
+		K_UserRanges as a,K_Users as u,K_CardKinds as c WHERE UserRangeID
+		NOT IN(SELECT
+		TOP
+		${page} UserRangeID
+		FROM
+		K_UserRanges ORDER BY
+		UserRangeID desc)
+		and
+		c.id = a.cardKindID
+		and
+		a.UserID = u.id
+		<if test='userid != null and userid != ""'>
+			and userid = #{userid}
+		</if>
+		<if test='cardnum != null and cardnum != ""'>
+			and UserRangeName like '%'+#{cardnum}+'%'
+		</if>
+		ORDER BY
+		UserRangeID desc
+	</select>
+
+	<!-- 统计用户卡 -->
+	<select id="countCard" resultType="Integer">
+
+		select count(UserRangeID) from
+		K_UserRanges where 1=1
+		<if test='userid != null and userid != ""'>
+			and userid = #{userid}
+		</if>
+		<if test='cardnum != null and cardnum != ""'>
+			and UserRangName like '%'+#{cardnum}+'%'
+		</if>
+
+	</select>
+
+
+	<!-- 添加用户卡 -->
+	<insert id="addCard" parameterType="UserCard">
+	<![CDATA[
+		insert into
+		K_UserRanges(userId,cardKindID,userRangeStatus,userRangeName,userRangeBegin,userRangeEnd,cardKindsPrice,cardKindsCost)
+		values(#{userId},#{cardKindID},#{userRangeStatus},#{userRangeName},#{userRangeBegin},#{userRangeEnd},#{cardKindsPrice},#{cardKindsCost})
+	]]>
+	</insert>
+
+	<!-- 修改用户卡 -->
+	<update id="updateCard" parameterType="com.util.KUserRanges_util">
+	<![CDATA[
+		UPDATE K_UserRanges SET
+		userId = ${userId},
+		userRangeStatus = ${userRangeStatus},
+		UserRangeName
+		=
+		${userRangeName},userRangeBegin =
+		${userRangeBegin},UserRangeEnd=
+		${userRangeEnd},cardKindID=${cardKindID},
+		cardKindsPrice=${cardKindsPrice},cardKindsCost=${cardKindsCost}
+		WHERE
+		userRangeId =
+		${userRangeId}
+	]]>
+	</update>
+
+
+	<!-- 删除用户卡 -->
+	<delete id="delCard" parameterType="java.util.List">  
+    <![CDATA[  
+       delete from K_UserRanges where userRangeId in  
+    ]]>
+		<foreach collection="dellist" item="item" open="(" separator=","
+			close=")">#{item}
+
+		</foreach>
+	</delete>
+
+
+
+	<!--查询当前用户下面的卡 -->
+	<select id="findByUser" parameterType="String" resultMap="findByUserMap">
+	<![CDATA[
+		SELECT
+		K_CardKinds.id,
+		K_CardKinds.CardKindsName,
+		K_CardKinds.cardKindsDefault,
+		K_UserRanges.cardKindsPrice,
+		K_UserRanges.cardKindsCost,
+		K_CardKinds.CardKindsName+K_UserRanges.UserRangeBegin as UserRangeBegin
+		FROM
+		K_Users,K_UserRanges,K_CardKinds
+		WHERE
+		K_Users.id =
+		K_UserRanges.UserID
+		and
+		K_CardKinds.id=K_UserRanges.cardKindID
+		and
+		K_Users.id = #{id}
+		]]>
+	</select>
+
+	<!--查询当前用户下面的号段 -->
+	<select id="findRangsByUser" resultType="UserCard">
+	<![CDATA[
+		select * from
+		K_UserRanges where K_UserRanges.UserID = #{id}
+	]]>
+	</select>
+	<!-- 获取符合条件的用户卡的信息 -->
+	<select id="findByUserAndCard" resultType="UserCard">
+		<![CDATA[
+		select * from K_UserRanges where K_UserRanges.UserID = #{0} and K_UserRanges.userRangeBegin <= #{1} and K_UserRanges.userRangeEnd >= #{1} and K_UserRanges.userRangeBegin <= #{2} and K_UserRanges.userRangeEnd >= #{2}
+		 ]]>
+	</select>
+
+	<!-- 查询接口传过来的卡号信息 -->
+	<select id="findByCard" resultType="UserCard">
+		<![CDATA[
+		select * from K_UserRanges where K_UserRanges.userRangeBegin <= #{0} and K_UserRanges.userRangeEnd >= #{0} and K_UserRanges.userRangeBegin <= #{1} and K_UserRanges.userRangeEnd >= #{1}
+		 ]]>
+	</select>
+
+</mapper> 

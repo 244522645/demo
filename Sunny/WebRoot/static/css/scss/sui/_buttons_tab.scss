@@ -1,0 +1,30 @@
+// 标签页
+// ------------------------------------------------------------------------------------
+
+.buttons-tab .button.active{
+  color: $brand-red;
+  border-color: $brand-red;
+}
+
+.bar > .buttons-tab{
+  padding-left:20px;
+  padding-right:20px;
+  background-color:transparent;
+  overflow:hidden;
+  &::after{
+    content:"";
+    height:0;
+  }
+  >.button{
+    top:0;
+    height: 2.2rem;
+    font-size:16px;
+    line-height:2.2rem;
+  }
+  @include max-screen(376px) {
+    >.button{ font-size:14px;}
+  }
+  @include max-screen(321px){
+    >.button{ font-size:12px;}
+  }
+}

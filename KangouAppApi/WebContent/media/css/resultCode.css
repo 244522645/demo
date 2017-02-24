@@ -1,0 +1,43 @@
+/***
+index2
+***/
+.login {
+	background-color: #FDF7F2 !important;
+}
+
+.login .content ul li a {
+	color: #0E3A56;
+}
+
+.login .logo {
+	margin: 0 auto;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	text-align: center;
+	background-color: #EF4141 !important;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.login .content {
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+.login .content ul li {
+	margin-bottom: 10px;
+	font-size: 20px;
+	display: block;
+	background: #f0f6fa;
+	min-height: 20px;
+}
+
+.login .content ul li p span {
+	text-align: right;
+}
+
+.button li {
+	text-align: center;
+}

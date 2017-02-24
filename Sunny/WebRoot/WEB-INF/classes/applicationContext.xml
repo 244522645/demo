@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache" 
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:task="http://www.springframework.org/schema/task"  
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/cache   http://www.springframework.org/schema/cache/spring-cache-3.1.xsd	
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/task  
+		http://www.springframework.org/schema/task/spring-task-3.1.xsd  ">
+
+	<description>Spring公共配置 </description>
+	
+	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.ybt" >
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	
+	<!-- 启用AspectJ对Annotation的支持 -->         
+    <aop:aspectj-autoproxy proxy-target-class="true" />    
+	
+	<!-- 用spring 导入资源文件  -->
+	<bean id="propertyConfigurer"
+		class="com.ybt.common.util.CustomPropertyConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:/resource.properties</value>
+				<value>classpath*:/config.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 数据源定义,使用c3p0 连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"	>
+		<property name="driverClass" value="${jdbc.driver}"></property>
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
+		<property name="user" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="acquireIncrement" value="${c3p0.acquireIncrement}"></property>
+		<property name="initialPoolSize" value="${c3p0.initialPoolSize}"></property>
+		<property name="minPoolSize" value="${c3p0.minPoolSize}"></property>
+		<property name="maxPoolSize" value="${c3p0.maxPoolSize}"></property>
+		<property name="maxIdleTime" value="${c3p0.maxIdleTime}"></property>
+		<property name="idleConnectionTestPeriod" value="${c3p0.idleConnectionTestPeriod}"></property>
+		<property name="maxStatements" value="${c3p0.maxStatements}"></property>
+		<property name="numHelperThreads" value="${c3p0.numHelperThreads}"></property>
+		<property name="checkoutTimeout" value="${c3p0.checkoutTimeout}"></property>
+	</bean>
+	
+	 <!-- Jpa Entity Manager 配置 -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
+        <property name="packagesToScan" value="com.ybt.model"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+   	            <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+                <prop key="net.sf.ehcache.configurationResourceName">ehcache/ehcache-core.xml</prop>
+            
+   	            <!-- 	二级缓存
+				<prop key="javax.persistence.sharedCache.mode">ENABLE_SELECTIVE</prop>  
+				<prop key="hibernate.generate_statistics">true</prop>  -->
+   	            <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+               	<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> <!--  此处一定要注意，create是重新创建表，在初始化时使用，系统运行期间切记不可打开-->
+            	<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+            </props>
+       </property>
+        <property name="persistenceUnitName" value="default" />  
+    </bean>
+	<!-- 建立视图内拦截器来解决JPA中访问延迟加载属性时产生的无会话异常 -->  
+	<!-- LazyInitializationException: could not initialize proxy no session -->  
+	<!-- 此拦截器会注入到servlet配置中的DefaultAnnotationHandlerMapping中 -->  
+	<bean name="openEntityManagerInViewInterceptor" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">  
+	    <property name="entityManagerFactory">  
+	        <ref bean="entityManagerFactory" />  
+	    </property>  
+	</bean>  
+    <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+	
+	<!-- Spring Data Jpa配置 -->
+    <jpa:repositories base-package="com.ybt.dao" factory-class="com.ybt.dao.base.impl.BaseDaoFactoryBean"  transaction-manager-ref="transactionManager"   entity-manager-factory-ref="entityManagerFactory"   repository-impl-postfix="Impl" />
+	
+	<!-- Jpa 事务配置 -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <property name="globalRollbackOnParticipationFailure" value="false" />
+    </bean>
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+    
+    <!-- 线程配置 -->
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+	  <!-- 核心线程数 -->	 
+	  <property name="corePoolSize" value="${task.core_pool_size}" />
+	  <!-- 最大线程数 -->  
+	  <property name="maxPoolSize" value="${task.max_pool_size}" />
+	  <!-- 队列最大长度 -->
+	  <property name="queueCapacity" value="${task.queue_capacity}" />
+	  <!-- 线程池维护线程所允许的空闲时间，默认为60s -->
+	  <property name="keepAliveSeconds" value="${task.keep_alive_seconds}" />
+	</bean>
+	<!-- 注解式 -->
+	<task:annotation-driven />
+	
+	<!-- 过滤器调用服务 -->
+	<!-- <bean id="businessService" class="com.ybt.service.work.impl.BusinessServiceImpl" /> -->
+	<!-- <bean id="printScreenUtils" class="com.ybt.common.uitl.PrintScreenUtils" /> -->
+	<!-- 常量类 -->
+	<bean id="constant" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="runMode" value="${running.mode}" />
+				<entry key="path" value="${path}" />
+				<entry key="siteName" value="${siteName}" />
+				<entry key="imgDomainName" value="${imgDomainName}" />
+				<entry key="domainName" value="${domainName}" />
+				<entry key="keywords" value="${keywords}" />
+				<entry key="description" value="${description}" />
+				<entry key="sunPrice" value="${sunPrice}" />
+				<entry key="sunCard" value="${sunCard}" />
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 缓存配置 -->  
+    <!-- 启用缓存注解功能(请将其配置在Spring主配置文件中) -->  
+    <cache:annotation-driven cache-manager="cacheManager"/>  
+	<!-- spring缓存 -->
+	<bean id="cacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">  
+        <property name="configLocation" value="classpath:/ehcache/ehcache.xml"/>  
+    </bean>  
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">  
+        <property name="cacheManager" ref="cacheManagerFactory"/>  
+    </bean>  
+  
+  <!--  异常页面-->
+    <bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="error"></property>
+		<property name="exceptionAttribute" value="ex"></property>
+		<property name="exceptionMappings">
+			<props>
+				<!-- <prop key="org.springframework.web.HttpSessionRequiredException">/login</prop> -->
+				<prop key="com.ybt.common.exception.MobileException">/work/common/error</prop>
+				<prop key="java.lang.Exception">/work/common/error</prop>
+			</props>
+		</property>
+	</bean>
+ </beans>

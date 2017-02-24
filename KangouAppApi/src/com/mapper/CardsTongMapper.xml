@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.CardsTongMapper">
+	<resultMap id="BaseResultMap" type="CardsTong">
+		<id column="CardTNumber" property="cardtnumber" jdbcType="NVARCHAR" />
+		<result column="CardTID" property="cardtid" jdbcType="CHAR" />
+		<result column="CardTCode" property="cardtcode" jdbcType="NVARCHAR" />
+		<result column="CardTMoney" property="cardtmoney" jdbcType="INTEGER" />
+		<result column="CardTStatus" property="cardtstatus" jdbcType="INTEGER" />
+		<result column="CardTDateBegin" property="cardtdatebegin"
+			jdbcType="TIMESTAMP" />
+		<result column="CardTDateEnd" property="cardtdateend" jdbcType="TIMESTAMP" />
+		<result column="CardTKind" property="cardtkind" jdbcType="INTEGER" />
+		<result column="CardTName" property="cardtname" jdbcType="NVARCHAR" />
+		<result column="CardTNumber2" property="cardtnumber2" jdbcType="NVARCHAR" />
+		<result column="TicketCount" property="ticketcount" jdbcType="INTEGER" />
+		<result column="TicketRemainCount" property="ticketremaincount"
+			jdbcType="INTEGER" />
+		<result column="UserID" property="userid" jdbcType="NVARCHAR" />
+		<result column="CardMonth" property="cardmonth" jdbcType="NVARCHAR" />
+		<result column="TicketMonth" property="ticketmonth" jdbcType="INTEGER" />
+		<result column="TicketYear" property="ticketyear" jdbcType="INTEGER" />
+		<result column="CardTKindPosID" property="cardtkindposid"
+			jdbcType="INTEGER" />
+		<result column="CardTDescription" property="cardtdescription"
+			jdbcType="NVARCHAR" />
+		<result column="CardTPosCode" property="cardtposcode" jdbcType="NVARCHAR" />
+		<result column="CardTIDCard" property="cardtidcard" jdbcType="NVARCHAR" />
+		<result column="CardTime" property="cardtime" jdbcType="TIMESTAMP" />
+		<result column="CardWriteTime" property="cardwritetime"
+			jdbcType="TIMESTAMP" />
+		<result column="CardCompany" property="cardcompany" jdbcType="INTEGER" />
+		<result column="CardRealtionUserID" property="cardrealtionuserid"
+			jdbcType="INTEGER" />
+		<result column="CardSaleUserName" property="cardsaleusername"
+			jdbcType="NVARCHAR" />
+		<result column="CardIsFill" property="cardisfill" jdbcType="BIT" />
+		<result column="TicketNumber" property="ticketnumber" jdbcType="NVARCHAR" />
+		<result column="CardIsTest" property="cardistest" jdbcType="BIT" />
+		<result column="CardCity" property="cardcity" jdbcType="NVARCHAR" />
+		<result column="CardPhoto" property="cardphoto" jdbcType="NVARCHAR" />
+		<result column="CardCinema" property="cardcinema" jdbcType="NVARCHAR" />
+		<result column="Backup_TicketRemainCount" property="backupTicketremaincount"
+			jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		CardTNumber, CardTID, CardTCode, CardTMoney, CardTStatus,
+		CardTDateBegin,
+		CardTDateEnd,
+		CardTKind, CardTName, CardTNumber2,
+		TicketCount, TicketRemainCount, UserID,
+		CardMonth,
+		TicketMonth,
+		TicketYear, CardTKindPosID, CardTDescription, CardTPosCode,
+		CardTIDCard,
+		CardTime, CardWriteTime, CardCompany, CardRealtionUserID,
+		CardSaleUserName,
+		CardIsFill,
+		TicketNumber, CardIsTest, CardCity,
+		CardPhoto, CardCinema, Backup_TicketRemainCount
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from LKG_CardsTong
+		where CardTNumber = #{cardtnumber,jdbcType=NVARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		LKG_CardsTong
+		where CardTNumber = #{cardtnumber,jdbcType=NVARCHAR}
+	</delete>
+	<insert id="insert" parameterType="CardsTong">
+		insert into LKG_CardsTong
+		(CardTNumber, CardTID, CardTCode,
+		CardTMoney, CardTStatus,
+		CardTDateBegin,
+		CardTDateEnd, CardTKind, CardTName,
+		CardTNumber2,
+		TicketCount, TicketRemainCount,
+		UserID, CardMonth, TicketMonth,
+		TicketYear, CardTKindPosID, CardTDescription,
+		CardTPosCode,
+		CardTIDCard, CardTime,
+		CardWriteTime, CardCompany, CardRealtionUserID,
+		CardSaleUserName, CardIsFill, TicketNumber,
+		CardIsTest, CardCity,
+		CardPhoto,
+		CardCinema, Backup_TicketRemainCount)
+		values
+		(#{cardtnumber,jdbcType=NVARCHAR}, #{cardtid,jdbcType=CHAR},
+		#{cardtcode,jdbcType=NVARCHAR},
+		#{cardtmoney,jdbcType=INTEGER},
+		#{cardtstatus,jdbcType=INTEGER},
+		#{cardtdatebegin,jdbcType=TIMESTAMP},
+		#{cardtdateend,jdbcType=TIMESTAMP}, #{cardtkind,jdbcType=INTEGER},
+		#{cardtname,jdbcType=NVARCHAR},
+		#{cardtnumber2,jdbcType=NVARCHAR},
+		#{ticketcount,jdbcType=INTEGER},
+		#{ticketremaincount,jdbcType=INTEGER},
+		#{userid,jdbcType=NVARCHAR},
+		#{cardmonth,jdbcType=NVARCHAR}, #{ticketmonth,jdbcType=INTEGER},
+		#{ticketyear,jdbcType=INTEGER}, #{cardtkindposid,jdbcType=INTEGER},
+		#{cardtdescription,jdbcType=NVARCHAR},
+		#{cardtposcode,jdbcType=NVARCHAR}, #{cardtidcard,jdbcType=NVARCHAR},
+		#{cardtime,jdbcType=TIMESTAMP},
+		#{cardwritetime,jdbcType=TIMESTAMP},
+		#{cardcompany,jdbcType=INTEGER},
+		#{cardrealtionuserid,jdbcType=INTEGER},
+		#{cardsaleusername,jdbcType=NVARCHAR}, #{cardisfill,jdbcType=BIT},
+		#{ticketnumber,jdbcType=NVARCHAR},
+		#{cardistest,jdbcType=BIT},
+		#{cardcity,jdbcType=NVARCHAR}, #{cardphoto,jdbcType=NVARCHAR},
+		#{cardcinema,jdbcType=NVARCHAR},
+		#{backupTicketremaincount,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="CardsTong">
+		insert into LKG_CardsTong
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="cardtnumber != null">
+				CardTNumber,
+			</if>
+			<if test="cardtid != null">
+				CardTID,
+			</if>
+			<if test="cardtcode != null">
+				CardTCode,
+			</if>
+			<if test="cardtmoney != null">
+				CardTMoney,
+			</if>
+			<if test="cardtstatus != null">
+				CardTStatus,
+			</if>
+			<if test="cardtdatebegin != null">
+				CardTDateBegin,
+			</if>
+			<if test="cardtdateend != null">
+				CardTDateEnd,
+			</if>
+			<if test="cardtkind != null">
+				CardTKind,
+			</if>
+			<if test="cardtname != null">
+				CardTName,
+			</if>
+			<if test="cardtnumber2 != null">
+				CardTNumber2,
+			</if>
+			<if test="ticketcount != null">
+				TicketCount,
+			</if>
+			<if test="ticketremaincount != null">
+				TicketRemainCount,
+			</if>
+			<if test="userid != null">
+				UserID,
+			</if>
+			<if test="cardmonth != null">
+				CardMonth,
+			</if>
+			<if test="ticketmonth != null">
+				TicketMonth,
+			</if>
+			<if test="ticketyear != null">
+				TicketYear,
+			</if>
+			<if test="cardtkindposid != null">
+				CardTKindPosID,
+			</if>
+			<if test="cardtdescription != null">
+				CardTDescription,
+			</if>
+			<if test="cardtposcode != null">
+				CardTPosCode,
+			</if>
+			<if test="cardtidcard != null">
+				CardTIDCard,
+			</if>
+			<if test="cardtime != null">
+				CardTime,
+			</if>
+			<if test="cardwritetime != null">
+				CardWriteTime,
+			</if>
+			<if test="cardcompany != null">
+				CardCompany,
+			</if>
+			<if test="cardrealtionuserid != null">
+				CardRealtionUserID,
+			</if>
+			<if test="cardsaleusername != null">
+				CardSaleUserName,
+			</if>
+			<if test="cardisfill != null">
+				CardIsFill,
+			</if>
+			<if test="ticketnumber != null">
+				TicketNumber,
+			</if>
+			<if test="cardistest != null">
+				CardIsTest,
+			</if>
+			<if test="cardcity != null">
+				CardCity,
+			</if>
+			<if test="cardphoto != null">
+				CardPhoto,
+			</if>
+			<if test="cardcinema != null">
+				CardCinema,
+			</if>
+			<if test="backupTicketremaincount != null">
+				Backup_TicketRemainCount,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="cardtnumber != null">
+				#{cardtnumber,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtid != null">
+				#{cardtid,jdbcType=CHAR},
+			</if>
+			<if test="cardtcode != null">
+				#{cardtcode,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtmoney != null">
+				#{cardtmoney,jdbcType=INTEGER},
+			</if>
+			<if test="cardtstatus != null">
+				#{cardtstatus,jdbcType=INTEGER},
+			</if>
+			<if test="cardtdatebegin != null">
+				#{cardtdatebegin,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cardtdateend != null">
+				#{cardtdateend,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cardtkind != null">
+				#{cardtkind,jdbcType=INTEGER},
+			</if>
+			<if test="cardtname != null">
+				#{cardtname,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtnumber2 != null">
+				#{cardtnumber2,jdbcType=NVARCHAR},
+			</if>
+			<if test="ticketcount != null">
+				#{ticketcount,jdbcType=INTEGER},
+			</if>
+			<if test="ticketremaincount != null">
+				#{ticketremaincount,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardmonth != null">
+				#{cardmonth,jdbcType=NVARCHAR},
+			</if>
+			<if test="ticketmonth != null">
+				#{ticketmonth,jdbcType=INTEGER},
+			</if>
+			<if test="ticketyear != null">
+				#{ticketyear,jdbcType=INTEGER},
+			</if>
+			<if test="cardtkindposid != null">
+				#{cardtkindposid,jdbcType=INTEGER},
+			</if>
+			<if test="cardtdescription != null">
+				#{cardtdescription,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtposcode != null">
+				#{cardtposcode,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtidcard != null">
+				#{cardtidcard,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtime != null">
+				#{cardtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cardwritetime != null">
+				#{cardwritetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cardcompany != null">
+				#{cardcompany,jdbcType=INTEGER},
+			</if>
+			<if test="cardrealtionuserid != null">
+				#{cardrealtionuserid,jdbcType=INTEGER},
+			</if>
+			<if test="cardsaleusername != null">
+				#{cardsaleusername,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardisfill != null">
+				#{cardisfill,jdbcType=BIT},
+			</if>
+			<if test="ticketnumber != null">
+				#{ticketnumber,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardistest != null">
+				#{cardistest,jdbcType=BIT},
+			</if>
+			<if test="cardcity != null">
+				#{cardcity,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardphoto != null">
+				#{cardphoto,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardcinema != null">
+				#{cardcinema,jdbcType=NVARCHAR},
+			</if>
+			<if test="backupTicketremaincount != null">
+				#{backupTicketremaincount,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="CardsTong">
+		update LKG_CardsTong
+		<set>
+			<if test="cardtid != null">
+				CardTID = #{cardtid,jdbcType=CHAR},
+			</if>
+			<if test="cardtcode != null">
+				CardTCode = #{cardtcode,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtmoney != null">
+				CardTMoney = #{cardtmoney,jdbcType=INTEGER},
+			</if>
+			<if test="cardtstatus != null">
+				CardTStatus = #{cardtstatus,jdbcType=INTEGER},
+			</if>
+			<if test="cardtdatebegin != null">
+				CardTDateBegin = #{cardtdatebegin,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cardtdateend != null">
+				CardTDateEnd = #{cardtdateend,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cardtkind != null">
+				CardTKind = #{cardtkind,jdbcType=INTEGER},
+			</if>
+			<if test="cardtname != null">
+				CardTName = #{cardtname,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtnumber2 != null">
+				CardTNumber2 = #{cardtnumber2,jdbcType=NVARCHAR},
+			</if>
+			<if test="ticketcount != null">
+				TicketCount = #{ticketcount,jdbcType=INTEGER},
+			</if>
+			<if test="ticketremaincount != null">
+				TicketRemainCount =
+				#{ticketremaincount,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				UserID = #{userid,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardmonth != null">
+				CardMonth = #{cardmonth,jdbcType=NVARCHAR},
+			</if>
+			<if test="ticketmonth != null">
+				TicketMonth = #{ticketmonth,jdbcType=INTEGER},
+			</if>
+			<if test="ticketyear != null">
+				TicketYear = #{ticketyear,jdbcType=INTEGER},
+			</if>
+			<if test="cardtkindposid != null">
+				CardTKindPosID = #{cardtkindposid,jdbcType=INTEGER},
+			</if>
+			<if test="cardtdescription != null">
+				CardTDescription = #{cardtdescription,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtposcode != null">
+				CardTPosCode = #{cardtposcode,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtidcard != null">
+				CardTIDCard = #{cardtidcard,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardtime != null">
+				CardTime = #{cardtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cardwritetime != null">
+				CardWriteTime = #{cardwritetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="cardcompany != null">
+				CardCompany = #{cardcompany,jdbcType=INTEGER},
+			</if>
+			<if test="cardrealtionuserid != null">
+				CardRealtionUserID =
+				#{cardrealtionuserid,jdbcType=INTEGER},
+			</if>
+			<if test="cardsaleusername != null">
+				CardSaleUserName = #{cardsaleusername,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardisfill != null">
+				CardIsFill = #{cardisfill,jdbcType=BIT},
+			</if>
+			<if test="ticketnumber != null">
+				TicketNumber = #{ticketnumber,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardistest != null">
+				CardIsTest = #{cardistest,jdbcType=BIT},
+			</if>
+			<if test="cardcity != null">
+				CardCity = #{cardcity,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardphoto != null">
+				CardPhoto = #{cardphoto,jdbcType=NVARCHAR},
+			</if>
+			<if test="cardcinema != null">
+				CardCinema = #{cardcinema,jdbcType=NVARCHAR},
+			</if>
+			<if test="backupTicketremaincount != null">
+				Backup_TicketRemainCount =
+				#{backupTicketremaincount,jdbcType=INTEGER},
+			</if>
+		</set>
+		where CardTNumber = #{cardtnumber,jdbcType=NVARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="CardsTong">
+		update
+		LKG_CardsTong
+		set CardTID = #{cardtid,jdbcType=CHAR},
+		CardTCode =
+		#{cardtcode,jdbcType=NVARCHAR},
+		CardTMoney =
+		#{cardtmoney,jdbcType=INTEGER},
+		CardTStatus =
+		#{cardtstatus,jdbcType=INTEGER},
+		CardTDateBegin =
+		#{cardtdatebegin,jdbcType=TIMESTAMP},
+		CardTDateEnd =
+		#{cardtdateend,jdbcType=TIMESTAMP},
+		CardTKind =
+		#{cardtkind,jdbcType=INTEGER},
+		CardTName =
+		#{cardtname,jdbcType=NVARCHAR},
+		CardTNumber2 =
+		#{cardtnumber2,jdbcType=NVARCHAR},
+		TicketCount =
+		#{ticketcount,jdbcType=INTEGER},
+		TicketRemainCount =
+		#{ticketremaincount,jdbcType=INTEGER},
+		UserID =
+		#{userid,jdbcType=NVARCHAR},
+		CardMonth =
+		#{cardmonth,jdbcType=NVARCHAR},
+		TicketMonth =
+		#{ticketmonth,jdbcType=INTEGER},
+		TicketYear =
+		#{ticketyear,jdbcType=INTEGER},
+		CardTKindPosID =
+		#{cardtkindposid,jdbcType=INTEGER},
+		CardTDescription =
+		#{cardtdescription,jdbcType=NVARCHAR},
+		CardTPosCode =
+		#{cardtposcode,jdbcType=NVARCHAR},
+		CardTIDCard =
+		#{cardtidcard,jdbcType=NVARCHAR},
+		CardTime =
+		#{cardtime,jdbcType=TIMESTAMP},
+		CardWriteTime =
+		#{cardwritetime,jdbcType=TIMESTAMP},
+		CardCompany =
+		#{cardcompany,jdbcType=INTEGER},
+		CardRealtionUserID =
+		#{cardrealtionuserid,jdbcType=INTEGER},
+		CardSaleUserName =
+		#{cardsaleusername,jdbcType=NVARCHAR},
+		CardIsFill =
+		#{cardisfill,jdbcType=BIT},
+		TicketNumber =
+		#{ticketnumber,jdbcType=NVARCHAR},
+		CardIsTest =
+		#{cardistest,jdbcType=BIT},
+		CardCity = #{cardcity,jdbcType=NVARCHAR},
+		CardPhoto = #{cardphoto,jdbcType=NVARCHAR},
+		CardCinema =
+		#{cardcinema,jdbcType=NVARCHAR},
+		Backup_TicketRemainCount =
+		#{backupTicketremaincount,jdbcType=INTEGER}
+		where CardTNumber =
+		#{cardtnumber,jdbcType=NVARCHAR}
+	</update>
+	<select id="selectBycardNum" resultType="CardsTong"
+		parameterType="java.lang.String">
+		SELECT
+		c.CardTID,
+		c.CardTNumber,
+		c.CardTCode,
+		c.CardTMoney,
+		c.CardTStatus,
+		c.CardTDateBegin,
+		c.CardTDateEnd,
+		c.CardTKind,
+		c.CardTName,
+		c.CardTNumber2,
+		c.TicketCount,
+		c.TicketRemainCount,
+		c.UserID,
+		c.CardMonth,
+		c.TicketMonth,
+		c.TicketYear,
+		c.CardTKindPosID,
+		c.CardTDescription,
+		c.CardTPosCode,
+		c.CardTIDCard,
+		c.CardTime,
+		c.CardWriteTime,
+		c.CardCompany,
+		c.CardRealtionUserID,
+		c.CardSaleUserName,
+		c.CardIsFill,
+		c.TicketNumber,
+		c.CardIsTest,
+		c.CardCity,
+		c.CardPhoto,
+		c.CardCinema
+		from LKG_CardsTong   as c where CardTNumber
+		=#{cardNum,jdbcType=NVARCHAR}
+	</select>
+
+	<resultMap type="map" id="selectByCardpriceMap">
+		<id column="tick1" property="tick1" />
+		<id column="tick2" property="tick2" />
+		<id column="tick3" property="tick3" />
+		<id column="tick4" property="tick4" />
+		<id column="tick5" property="tick5" />
+		<id column="tick6" property="tick6" />
+		<id column="tick7" property="tick7" />
+		<id column="tick8" property="tick8" />
+	</resultMap>
+	<select id="selectByCardprice" resultMap="selectByCardpriceMap">
+		SELECT
+		[TicketKindPrice1] as tick1
+		,[TicketKindPrice2] as tick2
+		,[TicketKindPrice3] as tick3
+		,[TicketKindPrice4] as tick4
+		,[TicketKindPrice5] as tick5
+		,[TicketKindPrice6] as tick6
+		,[TicketKindPrice7] as tick7
+		,[TicketKindPrice8] as tick8
+		FROM
+		[LKG_CardsTongCinemaTicketKinds]
+		where CID= #{0} and CardTKindID =200
+	</select>
+</mapper>

@@ -1,0 +1,12 @@
+// image-rendering
+// https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering
+@mixin image-rendering($rendering: crisp-edges) {
+  @if $rendering == crisp-edges{
+    image-rendering: -moz-crisp-edges;         // Firefox
+    image-rendering: -webkit-optimize-contrast;// Webkit (non-standard naming)
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;  
+  } @else {
+    @include prefixer-value(image-rendering, webkit moz);
+  }
+}

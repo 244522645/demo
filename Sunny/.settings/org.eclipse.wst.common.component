@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ybt5.0">
+        <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/goods"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/v2.0"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/v3"/>
+        <property name="java-output-path" value="/ybt5.0/WebRoot/WEB-INF/classes"/>
+        <property name="context-root" value="/birth"/>
+    </wb-module>
+</project-modules>

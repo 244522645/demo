@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias alias="KUser" type="com.model.KUser" />
+		<typeAlias alias="KUserRightModel" type="com.model.KUserRightModel" />
+		<typeAlias alias="KUserRoles" type="com.model.KUserRoles" />
+		<typeAlias alias="UserCard" type="com.model.KUserRanges" />
+		<typeAlias alias="KCardOrders" type="com.model.KCardOrders" />
+		<typeAlias alias="KCardKinds" type="com.model.KCardKinds" />
+		<typeAlias alias="KUserMoneyChanges" type="com.model.KUserMoneyChanges"/>
+		<typeAlias alias="KCardDeadline" type="com.model.KCardDeadline"/>
+	</typeAliases>
+</configuration>

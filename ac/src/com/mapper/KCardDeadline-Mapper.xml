@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.KCardDeadlineMapper">
+	<resultMap type="Map" id="findOrdersByUserMap">
+		<result column="AfterDate" property="AfterDate" />
+		<result column="BeforeDate" property="BeforeDate" />
+		<result column="CardKindsName" property="CardKindsName" />
+		<result column="EndCardNum" property="EndCardNum" />
+		<result column="StartCardNum" property="StartCardNum" />
+		<result column="SubmitDate" property="SubmitDate" />
+		<result column="UserName" property="UserName" />
+		
+	</resultMap>
+	<resultMap type="Map" id="findByCardOrderByNumMap">
+	<result column="id"  property="id"/>
+	<result column=" ClosingDate"  property="ClosingDate"/>
+	</resultMap>
+	<!-- 查看当前用户 -->
+	<select id="findByCardOrderByNum" resultMap="findByCardOrderByNumMap">
+	<![CDATA[
+			select  id,ClosingDate  from K_CardOrders where CardKindsID = #{2} and StartCardNum  <= #{0} and EndCardNum >= #{1}
+	]]>
+	</select>
+
+	<!-- 添加延期记录 -->
+	<insert id="addAfterCard" parameterType="KCardDeadline">
+		<![CDATA[
+		insert into K_CardDeadline(StartCardNum,EndCardNum,CardKindsID,BeforeDate,AfterDate,SubmitDate,Userid) 
+		values(#{startCardNum},#{endCardNum},#{cardKindsId},#{beforeDate},#{afterDate},#{submitDate},#{userID});
+		]]>
+	</insert>
+	<!-- 查询用户的延期记录 -->
+	<select id="findDeadlineByPage" resultMap="findOrdersByUserMap">
+		SELECT
+		TOP  ${rows}
+		
+		CONVERT(varchar(100), a.AfterDate, 20) as AfterDate,CONVERT(varchar(100), a.BeforeDate, 20) as BeforeDate,c.CardKindsName,a.EndCardNum,a.StartCardNum,CONVERT(varchar(100), a.SubmitDate, 20) as SubmitDate,u.UserName
+		FROM
+		K_CardDeadline as a,K_Users as u,K_CardKinds as c WHERE a.ID NOT IN
+		(SELECT TOP ${page}  ID FROM K_CardDeadline ORDER BY ID desc)
+		and
+		a.Userid = u.ID and a.CardKindsID = c.ID 
+		<if test='startTime != null and startTime != ""'>
+			<![CDATA[and a.SubmitDate >= #{startTime}]]>
+		</if>
+			<if test='endTime != null and endTime != ""'>
+			<![CDATA[and a.SubmitDate <= #{endTime}]]>
+		</if>
+		<if test="userType != '0'.toString() and userType != 0">
+			and a.userid = ${userType}
+		</if>
+		ORDER BY
+		a.ID desc
+	</select>
+
+	<!-- 统计用户延期的个数 -->
+	<select id="countDeadlineByPage" resultType="Integer">
+		select count(id) from K_CardDeadline where
+		1 = 1
+		<if test='startTime != null and startTime != ""'>
+			<![CDATA[and SubmitDate >= #{startTime}]]>
+		</if>
+		<if test='endTime != null and endTime != ""'>
+			<![CDATA[and SubmitDate <= #{endTime}]]>
+		</if>
+		<if test="userType!=0">
+			and userid = ${userType}
+		</if>
+	</select>
+
+</mapper> 

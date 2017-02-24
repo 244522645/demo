@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.PosCinemasMapper">
+	<resultMap type="map" id="selectPosidResultMap">
+		<result column="PosCinemaID" property="poscinemaid" />
+		<result column="PosID" property="posid" />
+		<result column="Serialnumber" property="serialnumber" />
+
+	</resultMap>
+	<resultMap type="map" id="selectnineResuleMap">
+		<result column="posorderid" property="posorderid" />
+		<result column="batch" property="batch" />
+		<result column="posorderpurchasecount" property="posorderpurchasecount" />
+		<result column="posorderticketremaincount" property="posorderticketremaincount" />
+	</resultMap>
+	<!-- 根据用户卡号查询设备终端号 -->
+	<select id="selectPosid" parameterType="java.lang.String"
+		resultMap="selectPosidResultMap">
+		SELECT
+		PosCinemaID,PosID,Serialnumber
+		FROM
+		LKG_PosCinemas
+		WHERE
+		CID = #{id}
+		ORDER BY PosStatus DESC,PosID asc
+	</select>
+
+	<update id="updateSerialnumber">
+		update
+		LKG_PosCinemas SET
+		serialnumber = #{1} where PosCinemaID
+		=
+		#{0}
+	</update>
+
+	<select id="selectnineResule" resultMap="selectnineResuleMap">
+		select posorderid,batch,convert(varchar,posorderpurchasecount) as posorderpurchasecount,convert(varchar,posorderticketremaincount) as posorderticketremaincount from
+		LKG_PosOrders where posid=#{0} and cid = #{2} and
+		serialnumber = #{1}  ORDER BY PosOrderTime desc
+	</select>
+
+	<select id="selectnotnineResule" resultMap="selectnineResuleMap">
+		select posorderid,batch,convert(varchar,posorderpurchasecount) as posorderpurchasecount,convert(varchar,posorderticketremaincount) as posorderticketremaincount
+		from LKG_PosKanPianHuiOrders where posid=#{0} and cid =
+		#{2} and
+		serialnumber = #{1} ORDER BY PosOrderTime desc
+	</select>
+
+	<update id="uodatenineResule">
+		update
+		LKG_PosOrders SET BaoXianResult = #{1} where
+		posorderid
+		=
+		#{0}
+	</update>
+
+	<update id="uodatenotnineResule">
+		update
+		LKG_PosKanPianHuiOrders SET BaoXianResult =
+		#{1} where posorderid
+		=
+		#{0}
+	</update>
+</mapper>

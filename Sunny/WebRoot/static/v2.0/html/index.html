@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/sm,min.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="css/swiper-3.4.1.min.css" />
+</head>
+<body>
+	 <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page">
+            <!-- 标题栏 -->
+
+            <!-- 工具栏 -->
+           
+
+            <!-- 这里是页面内容区 -->
+            <div class="content">
+
+                	 <div class="searchbar row">
+					    <div class="search-input col-60">
+					      <label class="icon icon-search" for="search"></label>
+					      <input type="search" id='search' placeholder='一缕阳光，一份对白'/>
+					    </div>
+					    <a class="button button-fill button-primary col-40">
+					    	<div class="yvdin"><img src="img/yvding.png"></div>
+					    	<span>预定日出</span>
+					    </a>
+                	</div>
+                	  <div class="buttons-tab">
+					    <a href="#tab1" class="tab-link active button">日出</a>
+					    <a href="#tab2" class="tab-link button">升旗</a>
+					  </div>
+					<div class="content-block">
+					    <div class="tabs">
+					      <div id="tab1" class="tab active">
+					        <div class="content-block">
+					          <div class="swp">
+					          	<div class="swiper-container">
+								    <div class="swiper-wrapper">
+								        <div class="swiper-slide">
+								        	<p class="Title">2016年某某某送某某的生日礼物</p>
+								        	<p class="body">我目送沿海的日落、紧抱一个醉生梦死的枕头，游不出回忆却学不会放手，怎么走？</p>
+								        </div>
+								        <div class="swiper-slide">
+								        	<p class="Title">2016年某某某送某某的生日礼物</p>
+								        	<p class="body">我目送沿海的日落、紧抱一个醉生梦死的枕头，游不出回忆却学不会放手，怎么走？</p></div>
+								        <div class="swiper-slide">
+								        	<p class="Title">2016年某某某送某某的生日礼物</p>
+								        	<p class="body">我目送沿海的日落、紧抱一个醉生梦死的枕头，游不出回忆却学不会放手，怎么走？</p></div>
+								    	</div>
+								    
+									</div>
+					        	</div>
+					        <div class="list">
+					        	<img src="img/tu.png">
+					        	<p class="ThatDay">今天</p>
+					        	<p class="address">山东·青岛</p>
+					        	<p class="data">2016年8月10号</p>
+					        </div>
+					      </div>
+					      </div>
+					      <div id="tab2" class="tab">
+					        <div class="content-block">
+					          <p>This is tab 2 content</p>
+					        </div>
+					      </div>
+					    </div>
+					    
+					  </div>
+					</div>
+                
+            </div>
+        </div>
+   </div>
+    <!-- popup, panel 等放在这里 -->
+    <div class="panel-overlay"></div>
+    <!-- Left Panel with Reveal effect -->
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/sm.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>$.init();</script>
+    <script type="text/javascript" src="js/swiper-3.4.1.jquery.min.js"></script>
+    <script>
+    	var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'vertical',
+		    loop: true,
+		    autoplay : 5000,    //可选选项，自动滑动
+    		autoplayDisableOnInteraction : false,    //注意此参数，默认为true
+		  })       
+    </script>
+</body>
+</html>

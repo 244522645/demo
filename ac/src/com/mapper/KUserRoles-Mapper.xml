@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.KUserRolesMapper">
+	<!-- 查询用户下面的菜单 -->
+	<select id="findbyUser" resultType="KUserRightModel">
+		SELECT
+		K_UserRightModel.RightID,
+		K_UserRightModel.RightName,
+		K_UserRightModel.RightDescription,
+		K_UserRightModel.RightPage,
+		K_UserRightModel.RightConfig,
+		K_UserRightModel.RightPic,
+		K_UserRightModel.Rightascription
+		FROM
+		K_UserRightModel ,
+		K_UserRights ,
+		K_UserRoles
+		WHERE
+		K_UserRoles.RoleID =
+		K_UserRights.RoleID AND
+		K_UserRightModel.RightID =
+		K_UserRights.RightID AND
+		K_UserRoles.RoleId =
+		#{roleID} order by K_UserRightModel.RightName
+	</select>
+	<!-- 分页查询角色 -->
+	<select id="findRoleBy" resultType="KUserRoles">
+		SELECT TOP ${pageSize} * FROM
+		K_UserRoles WHERE RoleID NOT IN(SELECT TOP
+		${page} RoleID FROM
+		K_UserRoles ORDER BY RoleAddDate DESC, RoleID
+		DESC) ORDER BY
+		RoleAddDate DESC,RoleID DESC
+	</select>
+	<!-- 统计角色数量 -->
+	<select id="countRole" resultType="Integer">
+		select count(RoleID) from
+		K_UserRoles
+	</select>
+	<!-- 添加角色 -->
+	<insert id="addRole" parameterType="String">
+		INSERT INTO K_UserRoles
+		(RoleKind,RoleName,RoleDescription,RoleAddDate)
+		VALUES
+		(#{roleKind},#{roleName}, #{roleDescription},#{date})
+	</insert>
+
+	<!-- 修改角色 -->
+	<update id="updateRole" parameterType="String">
+		UPDATE K_UserRoles SET
+		RoleKind=#{roleKind}, RoleName=#{roleName},
+		RoleDescription=#{roleDescription} WHERE RoleID = #{roleId}
+	</update>
+
+	<!-- 查询所有的角色权限 -->
+	<select id="findAllRights" resultType="KUserRightModel">
+		select
+		u.Rightascription,u.RightConfig,u.RightDescription,u.RightID,u.RightName,u.RightPage,u.RightPic
+		from K_UserRightModel as u
+	</select>
+	<!-- 查询当前角色下面的权限 -->
+	<select id="findUserRights" resultType="String">
+		SELECT
+		m.RightID
+		FROM
+		K_UserRightModel as m,
+		K_UserRights as u ,
+		K_UserRoles as r
+		where
+		u.RightID = m.RightID and r.RoleID = u.RoleID and r.RoleID = #{roleId}
+	</select>
+	<!-- 删除用户下面的权限 -->
+	<delete id="deleterights">
+		delete FROM K_UserRights where roleid = #{roleid}
+		<if test='rightsid != null and rightsid != ""'>
+			and rightid = #{rightsid}
+		</if>
+
+	</delete>
+	<!-- 添加用户下面权限 -->
+	<insert id="addrights">
+		insert into K_UserRights (roleid,rightid)
+		values(#{roleid},#{rightsid})
+	</insert>
+
+	<!-- 查询当前用户跳转的目标地址有没有权限 -->
+	<select id="returnurl" resultType="Integer">
+		SELECT
+		count(K_Users.id)
+		FROM
+		K_Users
+		INNER JOIN K_UserRoles ON K_Users.roleID = K_UserRoles.RoleID
+		INNER JOIN K_UserRights ON K_UserRoles.RoleID =
+		K_UserRights.RoleID
+		INNER JOIN K_UserRightModel ON K_UserRights.RightID =
+		K_UserRightModel.RightID
+		WHERE
+		K_Users.id = #{userid} AND
+		K_UserRightModel.RightConfig = #{url}
+
+	</select>
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.model.UserInfo" alias="UserInfo" />
+		<typeAlias type="com.model.UserError" alias="UserError" />
+		<typeAlias type="com.model.CardsTong" alias="CardsTong" />
+		<typeAlias type="com.model.Version" alias="Version" />
+		<typeAlias type="com.model.Notices" alias="Notices" />
+		<typeAlias type="com.model.NoticeLogs" alias="NoticeLogs" />
+		<typeAlias type="com.model.PosOrders" alias="PosOrders"/>
+		<typeAlias type="com.model.PosCinemas" alias="PosCinemas"/>
+	</typeAliases>
+</configuration>

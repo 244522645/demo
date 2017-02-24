@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+// 边框背景书写顺序
+// border-image:[border-image-source] [border-image-slice] [border-image-width] [border-image-outset] [border-image-repeat];
+//-----------------------------------------------------------------------------
+// border-image-source   用在边框的图片的路径
+// border-image-slice    图片边框向内偏移
+// border-image-width    图片边框的宽度
+// border-image-outset   边框图像区域超出边框的量
+// border-image-repeat   图像边框是否应平铺(repeated)、铺满(rounded)或拉伸(stretched)
+//-----------------------------------------------------------------------------
+@mixin border-image($image){
+  @include prefixer(border-image, $image,webkit moz o);
+}
+
+// 圆角
+//-----------------------------------------------------------------------------
+// border-radius  可以四个方向分别书写圆角值
+// border-radius: 35px 25px 30px 20px / 35px 25px 15px 30px; 横向的圆角值 / 纵向的圆角值（即竖着的）
+// 如果只有四个值的话，一个圆角的横纵使用同一个值
+//-----------------------------------------------------------------------------
+@mixin border-radius($direction, $radius-size) {
+  // 所有圆角
+  @if $direction == all {border-radius: $radius-size;} 
+
+  // 横竖方向
+  @else if $direction == top    { border-top-left-radius: $radius-size;   border-top-right-radius: $radius-size;} 
+  @else if $direction == bottom { border-bottom-left-radius: $radius-size;border-bottom-right-radius: $radius-size;} 
+  @else if $direction == left   { border-top-left-radius: $radius-size;   border-bottom-left-radius: $radius-size;} 
+  @else if $direction == right  { border-top-right-radius: $radius-size;  border-bottom-right-radius: $radius-size;}
+  
+  // 单个圆角
+  @else if $direction == topleft     { border-top-left-radius: $radius-size;    } 
+  @else if $direction == topright    { border-top-right-radius: $radius-size;   } 
+  @else if $direction == bottomleft  { border-bottom-left-radius: $radius-size; } 
+  @else if $direction == bottomright { border-bottom-right-radius: $radius-size;}
+}
+
+// 边框线样式
+//-----------------------------------------------------------------------------
+// none      定义无边框
+// hidden    与 "none" 相同。不过应用于表时除外，对于表，hidden 用于解决边框冲突
+// dotted    定义点状边框。在大多数浏览器中呈现为实线
+// dashed    定义虚线。在大多数浏览器中呈现为实线
+// solid     定义实线
+// double    定义双线。双线的宽度等于 border-width 的值
+// groove    定义 3D 凹槽边框。其效果取决于 border-color 的值
+// ridge     定义 3D 垄状边框。其效果取决于 border-color 的值
+// inset     定义 3D inset 边框。其效果取决于 border-color 的值
+// outset    定义 3D outset 边框。其效果取决于 border-color 的值
+// inherit   规定应该从父元素继承边框样式
+

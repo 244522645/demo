@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+        http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_4.xsd"
+        version="2.4">
+	<description>ybt tags</description>
+	<tlib-version>2.4</tlib-version>
+	<short-name>hq</short-name>
+	<uri>/ybt-tags</uri>
+
+	<tag>
+		<name>subStr</name>
+		<tag-class>com.ybt.web.tags.TagSubStr</tag-class>
+		<body-content>jsp</body-content>
+		<attribute>
+			<description><![CDATA[ 原始字符串]]></description>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 要截取多长，默认10个 ]]></description>
+			<name>length</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 结尾的时候是否需要...，默认有，false为没有 ]]></description>
+			<name>dot</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+	</tag>
+
+
+	<tag>
+		<name>formatDate</name>
+		<attribute>
+			<description><![CDATA[ 日期时间el表达式 ]]></description>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 日期时间格式，例如：yyyy-MM-dd hh:mm，默认为wantonly ]]></description>
+			<name>pattern</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<tag-class>com.ybt.web.tags.TagFormatDate</tag-class>
+		<body-content>jsp</body-content>
+	</tag>
+	<tag>
+		<name>search-select-dict</name>
+		<tag-class>com.ybt.web.tags.TagSearchSelectDict</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description><![CDATA[ 同于html的value标签 ]]></description>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 同于html的class标签 ]]></description>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 同于html的style标签 ]]></description>
+			<name>styleName</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 可以输入的值：EQ(等于), LIKE(模糊), LT(小于), LE(小于等于), GT(大于), GE(大于等于),如：matchType="LIKE" ]]></description>
+			<name>matchType</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 可以输入的值：S(String), I(Integer), L(Long), N(Double), D(Date), B(Boolean),如：fieldType="S" ]]></description>
+			<name>fieldType</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 可以输入一个或多个字段名称,如果多个时请用","分隔,如：fieldList="name,email" ]]></description>
+			<name>fieldList</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ 输入的方式，分为radio和combobox两种，默认为combobox. ]]></description>
+			<name>inputType</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[ easyui的 dataOptions属性 ]]></description>
+			<name>dataOptions</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[  字典的类型，传code，非空. ]]></description>
+			<name>typeCode</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+
+</taglib>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.UserInfoMapper">
+	<resultMap id="BaseResultMap" type="Userinfo">
+		<id column="ID" property="id" jdbcType="CHAR" />
+		<result column="cinamaUserName" property="cinamausername"
+			jdbcType="NVARCHAR" />
+		<result column="cinamaUserPwd" property="cinamauserpwd"
+			jdbcType="NVARCHAR" />
+		<result column="parentID" property="parentid" jdbcType="CHAR" />
+		<result column="menu" property="menu" jdbcType="NVARCHAR" />
+		<result column="addDate" property="adddate" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="BIT" />
+		<result column="cinemaNickName" property="cinemanickname"
+			jdbcType="NVARCHAR" />
+		<result column="workStartDays" property="workstartdays"
+			jdbcType="NVARCHAR" />
+		<result column="PasswordMD5" property="passwordmd5" jdbcType="NVARCHAR" />
+		<result column="user_point" property="userPoint" jdbcType="INTEGER" />
+		<result column="mobileType" property="mobiletype" jdbcType="NVARCHAR" />
+		<result column="version" property="version" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap type="map" id="findBycinemaMap">
+		<result column="name" property="name" />
+		<result column="posid" property="posid" />
+		<result column="id" property="id"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		ID, cinamaUserName, cinamaUserPwd, parentID, menu, addDate,
+		status,
+		cinemaNickName,
+		workStartDays, PasswordMD5, user_point,
+		mobileType, version
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from LKG_CinemaUsers
+		where ID = #{id,jdbcType=CHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from
+		LKG_CinemaUsers
+		where ID = #{id,jdbcType=CHAR}
+	</delete>
+	<insert id="insert" parameterType="Userinfo">
+		insert into LKG_CinemaUsers
+		(ID, cinamaUserName, cinamaUserPwd,
+		parentID, menu, addDate,
+		status,
+		cinemaNickName, workStartDays,
+		PasswordMD5, user_point, mobileType,
+		version)
+		values (#{id,jdbcType=CHAR},
+		#{cinamausername,jdbcType=NVARCHAR},
+		#{cinamauserpwd,jdbcType=NVARCHAR},
+		#{parentid,jdbcType=CHAR},
+		#{menu,jdbcType=NVARCHAR}, #{adddate,jdbcType=TIMESTAMP},
+		#{status,jdbcType=BIT}, #{cinemanickname,jdbcType=NVARCHAR},
+		#{workstartdays,jdbcType=NVARCHAR},
+		#{passwordmd5,jdbcType=NVARCHAR},
+		#{userPoint,jdbcType=INTEGER}, #{mobiletype,jdbcType=NVARCHAR},
+		#{version,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="Userinfo">
+		insert into LKG_CinemaUsers
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="cinamausername != null">
+				cinamaUserName,
+			</if>
+			<if test="cinamauserpwd != null">
+				cinamaUserPwd,
+			</if>
+			<if test="parentid != null">
+				parentID,
+			</if>
+			<if test="menu != null">
+				menu,
+			</if>
+			<if test="adddate != null">
+				addDate,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="cinemanickname != null">
+				cinemaNickName,
+			</if>
+			<if test="workstartdays != null">
+				workStartDays,
+			</if>
+			<if test="passwordmd5 != null">
+				PasswordMD5,
+			</if>
+			<if test="userPoint != null">
+				user_point,
+			</if>
+			<if test="mobiletype != null">
+				mobileType,
+			</if>
+			<if test="version != null">
+				version,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=CHAR},
+			</if>
+			<if test="cinamausername != null">
+				#{cinamausername,jdbcType=NVARCHAR},
+			</if>
+			<if test="cinamauserpwd != null">
+				#{cinamauserpwd,jdbcType=NVARCHAR},
+			</if>
+			<if test="parentid != null">
+				#{parentid,jdbcType=CHAR},
+			</if>
+			<if test="menu != null">
+				#{menu,jdbcType=NVARCHAR},
+			</if>
+			<if test="adddate != null">
+				#{adddate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=BIT},
+			</if>
+			<if test="cinemanickname != null">
+				#{cinemanickname,jdbcType=NVARCHAR},
+			</if>
+			<if test="workstartdays != null">
+				#{workstartdays,jdbcType=NVARCHAR},
+			</if>
+			<if test="passwordmd5 != null">
+				#{passwordmd5,jdbcType=NVARCHAR},
+			</if>
+			<if test="userPoint != null">
+				#{userPoint,jdbcType=INTEGER},
+			</if>
+			<if test="mobiletype != null">
+				#{mobiletype,jdbcType=NVARCHAR},
+			</if>
+			<if test="version != null">
+				#{version,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="Userinfo">
+		update LKG_CinemaUsers
+		<set>
+			<if test="cinamausername != null">
+				cinamaUserName = #{cinamausername,jdbcType=NVARCHAR},
+			</if>
+			<if test="cinamauserpwd != null">
+				cinamaUserPwd = #{cinamauserpwd,jdbcType=NVARCHAR},
+			</if>
+			<if test="parentid != null">
+				parentID = #{parentid,jdbcType=CHAR},
+			</if>
+			<if test="menu != null">
+				menu = #{menu,jdbcType=NVARCHAR},
+			</if>
+			<if test="adddate != null">
+				addDate = #{adddate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=BIT},
+			</if>
+			<if test="cinemanickname != null">
+				cinemaNickName = #{cinemanickname,jdbcType=NVARCHAR},
+			</if>
+			<if test="workstartdays != null">
+				workStartDays = #{workstartdays,jdbcType=NVARCHAR},
+			</if>
+			<if test="passwordmd5 != null">
+				PasswordMD5 = #{passwordmd5,jdbcType=NVARCHAR},
+			</if>
+			<if test="userPoint != null">
+				user_point = #{userPoint,jdbcType=INTEGER},
+			</if>
+			<if test="version != null">
+				version = #{version,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=CHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="Userinfo">
+		update
+		LKG_CinemaUsers
+		set cinamaUserName =
+		#{cinamausername,jdbcType=NVARCHAR},
+		cinamaUserPwd =
+		#{cinamauserpwd,jdbcType=NVARCHAR},
+		parentID =
+		#{parentid,jdbcType=CHAR},
+		menu = #{menu,jdbcType=NVARCHAR},
+		addDate =
+		#{adddate,jdbcType=TIMESTAMP},
+		status = #{status,jdbcType=BIT},
+		cinemaNickName = #{cinemanickname,jdbcType=NVARCHAR},
+		workStartDays =
+		#{workstartdays,jdbcType=NVARCHAR},
+		PasswordMD5 =
+		#{passwordmd5,jdbcType=NVARCHAR},
+		user_point =
+		#{userPoint,jdbcType=INTEGER},
+		mobileType =
+		#{mobiletype,jdbcType=NVARCHAR},
+		version = #{version,jdbcType=VARCHAR}
+		where ID = #{id,jdbcType=CHAR}
+	</update>
+	<select id="selectUserByPhone" resultType="UserInfo"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from LKG_CinemaUsers where cinamaUserName = #{phone}
+		<if test="imsi != null">
+			and cinemanickname =#{imsi}
+		</if>
+		ORDER BY addDate DESC
+	</select>
+	<insert id="addUser" parameterType="UserInfo">
+		insert into LKG_CinemaUsers
+		(ID, cinamaUserName, passwordmd5,addDate,status,cinemaNickName,
+		workStartDays,mobileType)
+		values(
+		#{id},#{cinamausername},#{passwordmd5},#{adddate},#{status,jdbcType=BIT},#{cinemanickname},#{workstartdays},#{mobileType}
+		)
+	</insert>
+	<update id="updateVersion" parameterType="java.lang.String">
+		update LKG_CinemaUsers
+		set version = #{version,jdbcType=VARCHAR}
+		where ID =
+		#{id,jdbcType=CHAR}
+	</update>
+	<select id="findBycinema" resultMap="findBycinemaMap">
+		select c.name,p.posid,c.id from
+		LKG_Cinemas as c,LKG_PosCinemas as p where
+		c.id=#{0} and p.cid=#{0}  ORDER BY p.PosID asc
+	</select>
+</mapper>

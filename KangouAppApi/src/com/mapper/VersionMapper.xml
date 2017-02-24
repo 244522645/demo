@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.VersionMapper" >
+  <resultMap id="BaseResultMap" type="Version" >
+    <id column="vid" property="vid" jdbcType="INTEGER" />
+    <result column="VersionNum" property="versionnum" jdbcType="NVARCHAR" />
+    <result column="url" property="url" jdbcType="NVARCHAR" />
+    <result column="Addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <result column="Mobiletype" property="mobiletype" jdbcType="NVARCHAR" />
+    <result column="Message" property="message" jdbcType="NVARCHAR" />
+    <result column="forced" property="forced" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    vid, VersionNum, url, Addtime, Mobiletype, Message, forced
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from APP_Version
+    where vid = #{vid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from APP_Version
+    where vid = #{vid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="Version" >
+    insert into APP_Version (vid, VersionNum, url, 
+      Addtime, Mobiletype, Message, 
+      forced)
+    values (#{vid,jdbcType=INTEGER}, #{versionnum,jdbcType=NVARCHAR}, #{url,jdbcType=NVARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{mobiletype,jdbcType=NVARCHAR}, #{message,jdbcType=NVARCHAR}, 
+      #{forced,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="Version" >
+    insert into APP_Version
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="vid != null" >
+        vid,
+      </if>
+      <if test="versionnum != null" >
+        VersionNum,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="addtime != null" >
+        Addtime,
+      </if>
+      <if test="mobiletype != null" >
+        Mobiletype,
+      </if>
+      <if test="message != null" >
+        Message,
+      </if>
+      <if test="forced != null" >
+        forced,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="vid != null" >
+        #{vid,jdbcType=INTEGER},
+      </if>
+      <if test="versionnum != null" >
+        #{versionnum,jdbcType=NVARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=NVARCHAR},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobiletype != null" >
+        #{mobiletype,jdbcType=NVARCHAR},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=NVARCHAR},
+      </if>
+      <if test="forced != null" >
+        #{forced,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="Version" >
+    update APP_Version
+    <set >
+      <if test="versionnum != null" >
+        VersionNum = #{versionnum,jdbcType=NVARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=NVARCHAR},
+      </if>
+      <if test="addtime != null" >
+        Addtime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobiletype != null" >
+        Mobiletype = #{mobiletype,jdbcType=NVARCHAR},
+      </if>
+      <if test="message != null" >
+        Message = #{message,jdbcType=NVARCHAR},
+      </if>
+      <if test="forced != null" >
+        forced = #{forced,jdbcType=BIT},
+      </if>
+    </set>
+    where vid = #{vid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Version" >
+    update APP_Version
+    set VersionNum = #{versionnum,jdbcType=NVARCHAR},
+      url = #{url,jdbcType=NVARCHAR},
+      Addtime = #{addtime,jdbcType=TIMESTAMP},
+      Mobiletype = #{mobiletype,jdbcType=NVARCHAR},
+      Message = #{message,jdbcType=NVARCHAR},
+      forced = #{forced,jdbcType=BIT}
+    where vid = #{vid,jdbcType=INTEGER}
+  </update>
+  <!-- 根据手机号查询最新的一条记录 -->
+  <select id="selsectByMobileType" resultType="Version">
+  select top 1  * from  APP_Version where Mobiletype = #{0} order by  Addtime desc
+  </select>
+</mapper>

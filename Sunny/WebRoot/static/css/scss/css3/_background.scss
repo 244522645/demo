@@ -1,0 +1,35 @@
+// 背景
+// =====================================================================================
+// -------------------------------------------------------------------------------------
+
+// 背景图片设置
+// border-box 正常模式 | padding-box 背景包含内边距 | content-box 只有内容的区域
+//
+@mixin background-clip($clip) {
+  @if length($clip) >= 1 {
+    @include prefixer(background-clip, $clip);
+  } @else {
+    @include prefixer(background-clip, padding-box);
+  }
+}
+
+// 规定背景图片相对于谁定位的
+// border-box | padding-box | content-box  (如果是padding-box,则图片只到padding区域（含padding）为止，不包括border)
+// 
+@mixin background-origin($origin...) {
+  @if length($origin) >= 1 {
+    @include prefixer(background-origin, $origin);
+  } @else {
+    @include prefixer(background-origin, border-box);
+  }
+}
+
+// <length>数字坐标 | auto 默认 | cover 图片将覆盖整个容器，也或许会超出一部分 | contain 相当于图片的自适应100%
+// 
+@mixin background-size($size...) {
+  @if length($size) >= 1 {
+    @include prefixer(background-size, $size);
+  } @else {
+    @include prefixer(background-size, cover);
+  }
+}

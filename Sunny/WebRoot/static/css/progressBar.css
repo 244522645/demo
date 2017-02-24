@@ -1,0 +1,36 @@
+body{font-size:14px;}
+#progress{
+	left:400px;top:200px;position:absolute;width:400px;height:100px;border:1px solid black;display:none;background-color:#FFF;
+	}
+#info{margin-left:20px;}
+#progressBar{border:1px solid black;height:20px;margin-left:20px;margin-top:20px;width:360px;
+   background: none repeat scroll 0 0 #222222;
+    border: 2px solid #222222;
+    border-radius: 20px;
+    box-sizing: content-box;
+    height: 15px;
+ /*   margin: 0 0 20px;*/
+    overflow: hidden;
+       background: none repeat scroll 0 0 #2980B9;
+    border-color: #2980B9;
+}
+#uploaded{height:20px;width:1px;background-color:#FFC125;
+    background: none repeat scroll 0 0 #444444;
+    border-radius: 20px;
+    box-sizing: content-box;
+    height: 15px;
+      background: none repeat scroll 0 0 #3498DB;
+}
+.pro-bar-candy.candy-rtl {
+    animation: 0.6s linear 0s normal none infinite progressStripeRTL;
+}
+.pro-bar-candy {
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.25) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+    background-repeat: repeat-x;
+    background-size: 30px 30px;
+    border-radius: 20px;
+    height: 15px;
+    width: 100%;
+}
+#title{height:20px;background-color:#A3A3A6;pading:-10px;}
+#close{width:10px;height:10px;right:1px;top:0px;position:absolute;display:none;cursor:pointer;}

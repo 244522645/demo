@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.NoticeLogsMapper">
+	<resultMap id="BaseResultMap" type="NoticeLogs">
+		<id column="Lid" property="lid" jdbcType="INTEGER" />
+		<result column="Userid" property="userid" jdbcType="CHAR" />
+		<result column="Noticeid" property="noticeid" jdbcType="INTEGER" />
+		<result column="Readtime" property="readtime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		Lid, Userid, Noticeid, Readtime
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from APP_Noticelogs
+		where Lid = #{lid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		APP_Noticelogs
+		where Lid = #{lid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="NoticeLogs">
+		insert into APP_Noticelogs
+		(Userid, Noticeid,
+		Readtime)
+		values (
+		#{userid,jdbcType=CHAR},
+		#{noticeid,jdbcType=INTEGER},
+		#{readtime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="NoticeLogs">
+		insert into APP_Noticelogs
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="lid != null">
+				Lid,
+			</if>
+			<if test="userid != null">
+				Userid,
+			</if>
+			<if test="noticeid != null">
+				Noticeid,
+			</if>
+			<if test="readtime != null">
+				Readtime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="lid != null">
+				#{lid,jdbcType=INTEGER},
+			</if>
+			<if test="userid != null">
+				#{userid,jdbcType=CHAR},
+			</if>
+			<if test="noticeid != null">
+				#{noticeid,jdbcType=INTEGER},
+			</if>
+			<if test="readtime != null">
+				#{readtime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="NoticeLogs">
+		update APP_Noticelogs
+		<set>
+			<if test="userid != null">
+				Userid = #{userid,jdbcType=CHAR},
+			</if>
+			<if test="noticeid != null">
+				Noticeid = #{noticeid,jdbcType=INTEGER},
+			</if>
+			<if test="readtime != null">
+				Readtime = #{readtime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where Lid = #{lid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="NoticeLogs">
+		update
+		APP_Noticelogs
+		set Userid = #{userid,jdbcType=CHAR},
+		Noticeid =
+		#{noticeid,jdbcType=INTEGER},
+		Readtime = #{readtime,jdbcType=TIMESTAMP}
+		where Lid = #{lid,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectByUser" resultType="NoticeLogs">
+		select * from
+		APP_Noticelogs where Userid = #{0} and Noticeid = #{1}
+	</select>
+</mapper>

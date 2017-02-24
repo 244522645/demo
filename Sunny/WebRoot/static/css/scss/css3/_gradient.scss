@@ -1,0 +1,91 @@
+// 渐变
+// filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false',startColorStr=iWidth,endColorStr=iWidth) 
+// 属性： enabled:可选项。布尔值(Boolean)。设置或检索滤镜是否激活。 true | false 
+// 　　   true: 默认值。滤镜激活。
+// 　　   false:滤镜被禁止
+
+// StartColorStr 可读写 字符串(String)   参阅 startColorStr 属性
+// StartColor    可读写 整数值(Integer)  设置或检索色彩渐变的开始颜色。 取值范围为 0 - 4294967295 。 0 为透明。 4294967295 为不透明白色 
+// EndColorStr   可读写 字符串(String)   设置或检索色彩渐变的结束颜色和透明度。参阅 startColorStr 属性。默认值为 #FF000000 。不透明黑色
+// EndColor      可读写 整数值(Integer)  设置或检索色彩渐变的结束颜色。 取值范围为 0 - 4294967295 。 0 为透明。 4294967295 为不透明白色。当在脚本中使用此特性时，也可以用十六进制格式： 0xAARRGGBB 
+
+// filter:Alpha(Opacity=?, FinishOpacity=?, Style=?, StartX=?, StartY=?, FinishX=?, FinishY=?) 
+// Opacity             透明度起始值，范围是0-100，0代表完全透明，100代表完全不透明
+// FinishOpacity       透明度结束值
+// Style               设置渐变透明的样式，值为0代表统一形状、1代表线形、2代表放射状、3代表长方形
+// StartX  和 StartY   代表渐变透明效果的开始X和Y坐标
+// FinishX 和 FinishY  代表渐变透明效果结束X和Y的坐标
+
+// 更换成 IE 所用颜色可以使用此函数 ie-hex-str($color)
+// ==========================================================================================================================================================================
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// 水平渐变，从左往右
+// @include gradient-horizontal(#333, #ccc);
+@mixin gradient-horizontal($gradient...){
+  background-image: -webkit-linear-gradient(left, $gradient); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(left, $gradient);      // Opera 11.10
+  background-image: linear-gradient(to right, $gradient);     // Standard, IE10
+}
+// 水平渐变，从左往右，平铺
+// @include gradient-horizontal-repeating(#333 5%, #ccc 10%);
+@mixin gradient-horizontal-repeating($gradient...){
+  background-image: -webkit-repeating-linear-gradient(left, $gradient); // Safari 5.1+, Chrome 10+
+  background-image: -o-repeating-linear-gradient(left, $gradient);      // Opera 11.10
+  background-image: repeating-linear-gradient(to right, $gradient);     // Standard, IE10
+}
+// 水平渐变,从上往下
+//
+// 设置开始和结束的颜色和位置，用来创建渐变颜色
+// IE9以下的版本不提供渐变颜色
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);       // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);    // 标准： IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+// 垂直渐变，从上往下，平铺
+// @include gradient-vertical-repeating(#333 30%, #ccc 50%);
+@mixin gradient-vertical-repeating($gradient...) {
+  background-image: -webkit-repeating-linear-gradient(top, $gradient); // Safari 5.1+, Chrome 10+
+  background-image: -o-repeating-linear-gradient(top, $gradient);      // Opera 11.10
+  background-image: repeating-linear-gradient(to bottom, $gradient);   // Standard, IE10
+}
+// 角度渐变
+@mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
+  background-repeat: repeat-x;
+  background-image: -webkit-linear-gradient($deg, $start-color, $end-color);                             // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient($deg, $start-color, $end-color);                                  // Opera 12
+  background-image: linear-gradient($deg, $start-color, $end-color);                                     // 标准： IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+}
+// 径向渐变
+@mixin gradient-radial($inner-color: #555, $outer-color: #333) {
+  background-image: -webkit-radial-gradient(circle, $inner-color, $outer-color);
+  background-image: radial-gradient(circle, $inner-color, $outer-color);
+  background-repeat: no-repeat;
+}
+// 条纹渐变
+@mixin gradient-striped($color: rgba(255,255,255,.15), $angle: 45deg) {
+  background-image: -webkit-linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+  background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+}
+// 三个颜色水平渐变
+// $color-stop 带二个颜色的位置
+@mixin gradient-horizontal-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+  background-image: -webkit-linear-gradient(left, $start-color, $mid-color $color-stop, $end-color);
+  background-image: -o-linear-gradient(left, $start-color, $mid-color $color-stop, $end-color);
+  background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9和以下版本, 得到无彩色停在所有的适当回落
+}
+// 三个颜色的垂直渐变
+@mixin gradient-vertical-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
+  background-image: -webkit-linear-gradient($start-color, $mid-color $color-stop, $end-color);
+  background-image: -o-linear-gradient($start-color, $mid-color $color-stop, $end-color);
+  background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9和以下版本, 得到无彩色停在所有的适当回落
+}

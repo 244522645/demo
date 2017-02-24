@@ -1,0 +1,109 @@
+// Transform
+// 参考网址 http://www.w3cplus.com/css3/transform-basic-property.html
+// -----------------------------------------------------------------------------------------------------------------
+@mixin transform($property...) { 
+  @include prefixer(transform, $property, webkit ms);
+}
+
+// x-axis X 轴 - left | center | right  | length | %
+// y-axis Y 轴 - top  | center | bottom | length | %
+// z-axis Z 轴 -                          length
+@mixin transform-origin($axes...) { 
+  @include prefixer(transform-origin, $axes, webkit moz ms);
+}
+
+// flat 指定子元素位于此元素所在平面内 | preserve-3d 指定子元素定位在三维空间内
+@mixin transform-style ($style: preserve-3d) {
+  @include prefixer(transform-style, $style);
+}
+
+// Transformations 转换
+// -----------------------------------------------------------------------------------------------------------------
+// 2D Transform Functions
+// matrix()：    以一个含六值的(a,b,c,d,e,f)变换矩阵的形式指定一个2D变换，相当于直接应用一个[a,b,c,d,e,f]变换矩阵
+// translate()： 指定对象的2D translation（2D平移）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0
+// translatex()：指定对象X轴（水平方向）的平移
+// translatey()：指定对象Y轴（垂直方向）的平移
+// rotate()：    指定对象的2D rotation（2D旋转），需先有 <' transform-origin '> 属性的定义
+// scale()：     指定对象的2D scale（2D缩放）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认取第一个参数的值
+// scalex()：    指定对象X轴的（水平方向）缩放
+// scaley()：    指定对象Y轴的（垂直方向）缩放
+// skew()：      指定对象skew transformation（斜切扭曲）。第一个参数对应X轴，第二个参数对应Y轴。如果第二个参数未提供，则默认值为0
+// skewx()：     指定对象X轴的（水平方向）扭曲
+// skewy()：     指定对象Y轴的（垂直方向）扭曲
+
+// 3D Transform Functions：
+// matrix3d()：   以一个4x4矩阵的形式指定一个3D变换
+// translate3d()：指定对象的3D位移。第1个参数对应X轴，第2个参数对应Y轴，第3个参数对应Z轴，参数不允许省略
+// translatez()： 指定对象Z轴的平移
+// rotate3d()：   指定对象的3D旋转角度，其中前3个参数分别表示旋转的方向x,y,z，第4个参数表示旋转的角度，参数不允许省略
+// rotatex()：    指定对象在x轴上的旋转角度
+// rotatey()：    指定对象在y轴上的旋转角度
+// rotatez()：    指定对象在z轴上的旋转角度
+// scale3d()：    指定对象的3D缩放。第1个参数对应X轴，第2个参数对应Y轴，第3个参数对应Z轴，参数不允许省略
+// scalez()：     指定对象的z轴缩放
+// perspective()：指定透视距离
+// -----------------------------------------------------------------------------------------------------------------
+
+// rotate
+@mixin rotate($degrees...) {  @include prefixer(transform, rotate($degrees), webkit moz ms);  }
+@mixin rotate3D($degrees...){ @include prefixer(transform, rotate3D($degrees), webkit moz ms);}
+@mixin rotateX($degrees) {    @include prefixer(transform, rotateX($degrees), webkit moz ms); }
+@mixin rotateY($degrees) {    @include prefixer(transform, rotateY($degrees), webkit moz ms); }
+@mixin rotateZ($degrees) {    @include prefixer(transform, rotateZ($degrees), webkit moz ms); }
+
+// scale
+@mixin scale($ratio...) { @include prefixer(transform, scale($ratio), webkit moz ms);  }
+@mixin scale3D($ratio...){@include prefixer(transform, scale3D($ratio), webkit moz ms);}
+@mixin scaleX($ratio) {   @include prefixer(transform, scaleX($ratio), webkit moz ms); }
+@mixin scaleY($ratio) {   @include prefixer(transform, scaleY($ratio), webkit moz ms); }
+@mixin scaleZ($ratio) {   @include prefixer(transform, scaleZ($ratio), webkit moz ms); }
+
+// translate
+@mixin translate($px...) {  @include prefixer(transform, translate($px), webkit moz ms);  }
+@mixin translate3D($px...){ @include prefixer(transform, translate3D($px), webkit moz ms);}
+@mixin translateX($px) {    @include prefixer(transform, translateX($px), webkit moz ms); }
+@mixin translateY($px) {    @include prefixer(transform, translateY($px), webkit moz ms); }
+@mixin translateZ($px) {    @include prefixer(transform, translateZ($px), webkit moz ms); }
+
+// skew
+// skew时一般会有锯齿什么的，解决方法是添加backface-visibility为hidden
+// 详见 https://github.com/twitter/bootstrap/issues/5319
+@mixin skew($degrees...) {
+  @include prefixer(transform, skew($degrees), webkit moz ms);
+  @include backface-visibility;
+}
+@mixin skewX($degrees) {
+  @include prefixer(transform, skewX($degrees), webkit moz ms);
+  @include backface-visibility;
+}
+@mixin skewY($degrees) {
+  @include prefixer(transform, skewY($degrees), webkit moz ms);
+  @include backface-visibility;
+}
+
+// matrix
+@mixin matrix($args...){
+  @include prefixer(transform, matrix($args), webkit moz ms);
+}
+@mixin matrix3D($args...){
+  @include prefixer(transform, matrix3D($args), webkit moz ms);
+}
+
+// perspective
+//-----------------------------------------------------
+// none | <length>
+@mixin perspective($depth: none) {
+  @include prefixer(perspective, $depth, webkit moz ms);
+}
+
+@mixin perspective-origin($value: 50% 50%) {
+  // x-axis - left | center | right  | length | %
+  // y-axis - top  | center | bottom | length | %
+  @include prefixer(perspective-origin, $value, webkit moz ms);
+}
+
+@mixin backface-visibility($visibility:hidden){
+  // visible | hidden
+  @include prefixer(backface-visibility, $visibility);
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.4.2.js"></script>
+		<!--<script src='js/jquery-1.8.2.js'></script>-->
+		
+		
+		<style>
+		#login {
+			width:300px;
+			height: 150px;
+			border:1px solid #bebebe;
+			border-radius: 5px;
+			top:0;
+			left:0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			position: fixed;
+			text-align: center;
+			padding-top: 30px;
+		}
+		#login span {
+			display: inline-block;
+			width:80px;
+		}
+		#login div {
+			margin-top: 10px;
+		}
+		.error {
+			display: block !important;
+			width:100% !important;
+			color:#f69;
+			font-size:12px;
+		}
+		.ce a{
+			margin-left:10px;
+			text-decoration:none ;
+			list-style: none;
+			font-size:16px;
+			color:#FF6699;
+		}
+		#login_btn{
+			background:#0000FF;
+			color:#fff;
+			border:none;
+			cursor: pointer;
+			
+		}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id='login'>
+			<div>
+				<span>用户名:</span>
+				<input id='name' type="text" placeholder="用户名">
+			</div>
+			<div class="pass">
+				<span>密码:</span><input id='pass' type="password" placeholder="请输入密码">
+			</div>
+			<div class="ce">
+				<button id='login_btn'>登录</button><a href="注册页面.html">立即注册</a>
+			</div>	
+	</div>
+<script>
+			$(function(){
+
+			//验证规则
+
+			//用户名
+			//非空  长度6~16位
+			//blur当元素失去焦点时触发 blur 事件。
+			$('#name').blur(function() {
+				//$(this).val()
+				var nameVal = this.value;
+				$(this).nextAll().remove();
+				//判断是否为空
+				if(nameVal == " ") {
+					$(this).after('<span class="error">用户名不能为空</span>');
+				} else if(nameVal.length<6 || nameVal.length>16){
+					$(this).after('<span class="error">用户名长度为6~16位</span>');
+				}
+			})
+
+			//密码
+			//非空 长度6~16位
+			//blur当元素失去焦点时触发 blur 事件。
+			$('#pass').blur(function() {
+				//$(this).val()
+				var passVal = this.value;
+				var reg=/^[1-9]\d*$|^0$/; 
+				$(this).nextAll().remove();
+				if(passVal == ' ') {
+					alert("空")
+				} else if(reg.test(passVal)==true){
+					alert("是数字");
+					 return true;
+				}else{
+					alert("不是数字");
+					return false;
+				}
+			})
+			
+			
+			
+		//点击登录事件
+			$('#login_btn').click(function() {
+				//主动验证是否符合格式,如果不符合格式
+				//插入span标签 显示错误信息
+				
+				$('#name,#pass').trigger('blur');
+				if($(".error").length == 0){
+				//	alert(2323);
+						$.ajax({
+							url:"http://dabiaogelan.duapp.com/users/login",
+							type:"get",
+							data:{
+								name:$('#name').val(),
+								
+								pass:$("#pass").val()
+								},
+							success:function(e){
+								if(e.data){
+									//alert(123);
+									window.location="用户列表.html";
+								}else{
+									$("#login").prepend('<span class="error">用户名密码不正确</span>');
+									setTimeout(function(){
+										$("#login .error:first").remove();
+									},1000)
+								}
+							}
+						})
+				} else {
+				 	alert('页面有错误,请修改');
+				}
+				
+			})
+
+})		
+			
+			
+			
+		</script>
+		
+
+		
+		
+	</body>
+</html>

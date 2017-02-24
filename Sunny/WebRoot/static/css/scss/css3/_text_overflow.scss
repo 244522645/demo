@@ -1,0 +1,18 @@
+// 截断文本
+// =====================================================================================
+// -------------------------------------------------------------------------------------
+
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 元素必须是 block 或 inline-block
+
+// 例子：
+// .branch-name {
+//   display: inline-block;
+//   max-width: 200px;
+//   .text-overflow();
+// }

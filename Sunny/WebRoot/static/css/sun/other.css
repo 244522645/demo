@@ -1,0 +1,337 @@
+.read:before {
+	position:absolute;
+	content:"对方已阅";
+	text-align:center;
+	line-height:9;
+	font-size:1rem;
+	font-weight:600;
+	color:#fff;
+	top: 0;
+	right: 0;
+	left:0;
+	bottom:0;
+	background-color:rgba(255,255,255,.2);
+}
+.Iread:before {
+	position:absolute;
+	content:"已阅";
+	text-align:center;
+	line-height:7;
+	font-size:1.3rem;
+	font-weight:600;
+	color:#fff;
+	top: 0;
+	right: 0;
+	left:0;
+	bottom:0;
+	background-color:rgba(255,255,255,.2);
+}
+/*搜索框*/ 
+.bar  .sun-sreach{
+	margin:0 .5rem 0 2.5rem;
+	padding:.4rem 0;
+	background: transparent;
+}
+.bar  .sun-sreach-index{
+	margin:0 2.8rem 0 2.5rem;
+}
+ .sun-sreach .search-input input{
+     padding: 0 1.5rem;
+ }
+ .sun-icon-left:before {
+    content: "\e614";
+ }
+ /*日历先选择*/
+ .sun-select-date{
+     position: fixed;
+     width: auto;
+     background-color:rgba(208, 26, 40, 0.8);
+        z-index: 999999;
+    right: 1rem;
+    bottom:1.5rem;
+    border-radius: 3rem;
+    padding: .5rem;
+     margin:0;
+     overflow-y: auto;
+    .transition(all 2.5s ease-in-out);
+    .translate3d(-100%, 0, 0);
+    opacity:0;
+     -webkit-box-shadow:8px 8px 10px black;
+          webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 60px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.sun-select-top{
+ 	opacity:1;
+}
+.sun-select-calendar{
+ 	opacity:1;
+}
+.sun-select-top .sun-select-icon{
+    	display:block;
+	vertical-align:top;
+	 width:1rem;
+	 height:1rem;
+	 margin:0;
+	 background-image: url("../../images/sun/sun-top.png");
+}
+.sun-select-calendar .sun-select-icon{
+    	display:block;
+	vertical-align:top;
+	 width:1rem;
+	 height:1rem;
+	 margin:0;
+	 background-image: url("../../images/sun/calendar.png");
+}
+.sun-no-data{
+	display:none;
+	 position: fixed;  
+  z-index: 999;  
+  top:24%;
+  width: 100%;
+}
+.sun-no-data .content-padded{
+text-align: center;
+}
+.sun-no-data .sun-no-data-img{
+	width: 8rem;
+}
+.sun-no-data p{
+	margin-top:0;
+	color:gray;
+}
+.search-infinite-scroll-preloader {
+    margin: .5rem;
+    text-align: center;
+}
+.search-infinite-scroll-preloader .preloader {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.search-infinite-scroll-nodata{
+	display:none;
+	 margin: .5rem;
+    text-align: center;
+    	color:gray;
+}
+
+/*首页 名人生日*/
+.sun-birthday {
+	background: transparent;
+}
+.sun-birthday .bar{
+	background-color: transparent;
+	background: rgba(0,0,0,.5);
+}
+.sun-birthday .bar:after{
+	background-color: transparent;
+}
+.icon-birthday:BEFORE{
+	background: url(../../images/sun/birthday.png);
+	background-size:cover;  
+	background-size:contain;
+	display: block;
+	width: 1.2rem;
+	height:1.2rem;
+	float: left;
+	content:'';
+}
+.icon-close{
+	width: 2rem;
+	height: 2rem;
+	display: block;
+	float: right;
+}
+.icon-close a{
+	background: url(../../images/sun/close-b.png);
+	background-size:cover;  
+	background-size:contain;
+	width: 1.1rem;
+	height:1.1rem;
+	display: block;
+	float: right;
+	margin-top: .5rem;
+}
+#birthday-content{
+	padding: .8rem;
+}
+/*首页 名人生日---------- end*/
+
+
+/* 免费领取阳光卡  start*/
+.bg-white {
+	background-color: white;
+}
+
+.total-bg {
+	background-color: #eeeeee;
+}
+
+.content-area {
+	overflow: hidden;
+	margin-top: 3rem;
+	width: 100%;
+	background-color: white;
+	padding: 1rem;
+}
+
+.div-input-phone {
+	padding: 0.3rem;
+	width: 100%;
+	background-color: #eeeeee;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+.input-phone {
+	padding: 0.5rem;
+	border-style: none;
+	outline: none;
+	font-size: 0.9rem;
+	width: 100%;
+	background-color: #eeeeee;
+	vertical-align: middle;
+}
+
+.div-input-yzm {
+	float: left;
+	margin-top: 1rem;
+	padding: 0.3rem;
+	width: 50%;
+	vertical-align: middle;
+	box-sizing: border-box;
+	background-color: #eeeeee;
+}
+
+.input-yzm {
+	padding: 0.5rem;
+	border-style: none;
+	outline: none;
+	font-size: 0.9rem;
+	width: 100%;
+	vertical-align: middle;
+	background-color: #eeeeee;
+}
+
+.a-get-yzm {
+	float: right;
+	margin-top: 1rem;
+	padding: 0.3rem;
+	width: 40%;
+	font-size: 0.9rem;
+	text-align: center;
+	color: white;
+	background-color: #00c29b;
+	vertical-align: middle;
+	line-height: 2rem;
+}
+
+.div-get-sun-card {
+	clear: both;
+	margin-top: 4.5rem;
+	font-size: 0.9rem;
+	text-align: center;
+	color: white;
+	width: 100%;
+	background-color: #00c29b;
+}
+
+.a-get-sun-card {
+	display: block;
+	width: 100%;
+	line-height: 2rem;
+	color: white;
+	padding: 0.3rem;
+}
+
+.shuoming {
+	box-sizing: border-box;
+	margin-top: 1rem;
+	width: 100%;
+	background-color: white;
+}
+
+ol {
+	margin: 0;
+	font-size: 0.7rem;
+	font-family: "黑体";
+	padding: 1rem 1rem 1rem 2rem;
+}
+
+.zhezhaoceng {
+	position: absolute;
+	z-index: 3000;
+	width: 100%;
+	height: 100%;
+	background-color: #121212;
+	opacity: 0.7;
+}
+
+.zhezhaoceng-success {
+	position: absolute;
+	z-index: 3000;
+	width: 100%;
+	background-color: firebrick;
+	opacity: 1;
+}
+
+.tanchukuang {
+	position: absolute;
+	z-index: 3000;
+	width: auto;
+	height: auto;
+	background-color: firebrick;
+	float: left;
+}
+.tanchukuang-shouci {
+	position: absolute;
+	z-index: 3000;
+	width: auto;
+	height: 100%;
+	background-color: firebrick;
+	float: left;
+}
+
+.img-success {
+	width: 90%;
+	margin-left: 5%;
+}
+
+.anniuzu {
+	position: absolute;
+	z-index: 30009;
+	margin-top: -5rem;
+	width: 90%;
+	margin-left: 5%;
+}
+
+.ul-anniu {
+	list-style: none;
+	margin: 0;
+	padding: 0.1rem 0.7rem 0 0.7rem;
+}
+
+.li-anniu {
+	display: inline;
+}
+
+.a-szf {
+	padding: 0.5rem;
+	font-size: 1rem;
+	background-color: #00c29b;
+	text-align: center;
+	color: white;
+	width: 45%;
+	float: left;
+}
+
+.a-chakan {
+	padding: 0.5rem;
+	font-size: 1rem;
+	background-color: #00c29b;
+	text-align: center;
+	color: white;
+	width: 45%;
+	float: right;
+}
+/* 免费领取阳光卡 End */

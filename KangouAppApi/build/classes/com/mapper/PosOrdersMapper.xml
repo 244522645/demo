@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.PosOrdersMapper">
+	<resultMap id="BaseResultMap" type="PosOrders">
+		<result column="CID" property="cid" jdbcType="CHAR" />
+		<result column="CardTID" property="cardtid" jdbcType="NVARCHAR" />
+		<result column="name" property="name" jdbcType="NVARCHAR" />
+		<result column="CardTNumber" property="cardtnumber" jdbcType="NVARCHAR" />
+		<result column="CardTMoney" property="cardtmoney" jdbcType="INTEGER" />
+		<result column="CardTStatus" property="cardtstatus" jdbcType="INTEGER" />
+		<result column="CardTDateBegin" property="cardtdatebegin"
+			jdbcType="TIMESTAMP" />
+		<result column="CardTDateEnd" property="cardtdateend" jdbcType="TIMESTAMP" />
+		<result column="CardTKind" property="cardtkind" jdbcType="INTEGER" />
+		<result column="CardTName" property="cardtname" jdbcType="NVARCHAR" />
+		<result column="TicketCount" property="ticketcount" jdbcType="INTEGER" />
+		<result column="TicketRemainCount" property="ticketremaincount"
+			jdbcType="INTEGER" />
+		<result column="PosOrderTime" property="posordertime" jdbcType="TIMESTAMP" />
+		<result column="PosOrderCount" property="posordercount"
+			jdbcType="INTEGER" />
+		<result column="PosOrderStatus" property="posorderstatus"
+			jdbcType="INTEGER" />
+		<result column="SerialNumber" property="serialnumber" jdbcType="NVARCHAR" />
+		<result column="Batch" property="batch" jdbcType="NVARCHAR" />
+		<result column="PosID" property="posid" jdbcType="NVARCHAR" />
+		<result column="cardtest" property="cardtest" jdbcType="BIT" />
+		<result column="CinemaPrice" property="cinemaprice" jdbcType="INTEGER" />
+		<result column="PosUserID" property="posuserid" jdbcType="NVARCHAR" />
+		<result column="CardTIDCard" property="cardtidcard" jdbcType="NVARCHAR" />
+		<result column="PosOrderPurchaseCount" property="posorderpurchasecount"
+			jdbcType="INTEGER" />
+		<result column="PosOrderPurchaseKind" property="posorderpurchasekind"
+			jdbcType="NVARCHAR" />
+		<result column="cityzone" property="cityzone" jdbcType="NVARCHAR" />
+	</resultMap>
+	<resultMap type="map" id="fingByTimeresultMap">
+		<result column="CardTNumber" property="cardtnumber" jdbcType="NVARCHAR" />
+		<result column="PosOrderTime" property="posordertime" jdbcType="TIMESTAMP" />
+		<result column="PosOrderCount" property="posordercount"
+			jdbcType="INTEGER" />
+		<result column="CinemaPrice" property="cinemaprice" jdbcType="INTEGER" />
+		<result column="SerialNumber" property="serialnumber" jdbcType="NVARCHAR" />
+	</resultMap>
+	<resultMap type="map" id="countBytimeresultmap">
+		<result column="num" property="num" jdbcType="NVARCHAR" />
+		<result column="CinemaPrice" property="cinemaprice" jdbcType="INTEGER" />
+	</resultMap>
+	<resultMap type="map" id="findByserialNumMap">
+		<result column="posorderid" property="posorderid" />
+		<result column="name" property="name" />
+		<result column="PosID" property="posid" />
+		<result column="Batch" property="batch" />
+		<result column="SerialNumber" property="serialnumber" />
+		<result column="CardTNumber" property="cardtnumber" />
+		<result column="OperationType" property="operationtype" />
+		<result column="PosOrderCount" property="posordercount" />
+		<result column="CinemaPrice" property="cinemaprice" />
+		<result column="BaoXianResult" property="baoxianresult" />
+		<result column="PosOrderTime" property="posordertime" />
+		<result column="posuserid" property="posuserid" />
+		<result column="posorderpurchasecount" property="posorderpurchasecount"
+			jdbcType="NVARCHAR" />
+		<result column="posorderticketremaincount" property="posorderticketremaincount"
+			jdbcType="NVARCHAR" />
+	</resultMap>
+	<!-- 财务结算分页查询 -->
+	<select id="fingByTime" resultMap="fingByTimeresultMap">
+		<!-- select * from(select ROW_NUMBER() OVER ( ORDER BY PosOrderTime DESC 
+			) as rownum,CardTNumber,CONVERT(varchar(100), PosOrderTime, 120) as PosOrderTime,PosOrderCount,CinemaPrice,SerialNumber 
+			from V_PosOrders,LKG_CinemaUsers as c where PosOrderTime > #{starttime} and 
+			PosOrderTime &lt; #{endtime} and PosOrderStatus = 1 and c.parentID = CID 
+			and c.parentID= #{parentID} GROUP BY CardTNumber, PosOrderTime, PosOrderCount, 
+			CinemaPrice, SerialNumber ) as temp where temp.rownum BETWEEN #{page} and 
+			#{pagesize} -->
+
+		SELECT * from
+		(
+		select ROW_NUMBER() OVER ( ORDER BY PosOrderTime DESC )
+		as rownum,* from (
+
+
+		(select
+		CardNumber as
+		CardTNumber,CONVERT(varchar(100),
+		PosOrderTime, 120) as
+		PosOrderTime,PosOrderCount,CinemaPrice,SerialNumber from
+		LKG_PosOrders
+		as c where
+		PosOrderTime BETWEEN #{starttime} and
+		#{endtime} and
+		PosOrderStatus = 1
+		and CID = #{parentID}
+		)
+
+
+		UNION ALL
+
+
+		(select
+		CardNumber as
+		CardTNumber,CONVERT(varchar(100),
+		PosOrderTime, 120) as
+		PosOrderTime,PosOrderPurchaseCount,CinemaPrice,SerialNumber from
+		LKG_PosKanPianHuiOrders where
+		PosOrderTime BETWEEN #{starttime} and
+		#{endtime} and
+		PosOrderStatus = 1 and
+		CID = #{parentID}
+		)
+
+		)
+
+		as r
+		) as temp
+		where
+		temp.rownum BETWEEN #{page} and #{pagesize}
+
+
+
+
+
+
+
+
+
+	</select>
+	<!-- 财务结算，时间段内统计数量 -->
+	<select id="countBytime" resultMap="countBytimeresultmap">
+		select sum(num) as
+		num,CinemaPrice from (
+
+		(select sum(v.PosOrderCount) as
+		num,v.CinemaPrice from
+		LKG_PosOrders as v
+		where v.PosOrderTime between
+		#{starttime} and #{endtime}
+		and
+		v.PosOrderStatus = 1
+		and v.CID=
+		#{parentID}
+		GROUP BY CinemaPrice)
+
+		UNION
+		all
+
+		(select
+		sum(v.PosOrderPurchaseCount)as num,v.CinemaPrice from
+		LKG_PosKanPianHuiOrders as v
+		where v.PosOrderTime between #{starttime}
+		and #{endtime}
+		and
+		v.PosOrderStatus = 1
+		and v.CID= #{parentID}
+		GROUP BY
+		CinemaPrice)
+
+
+		) as
+		t GROUP BY t.CinemaPrice
+
+
+	</select>
+	<!-- 根据流水号查询结果 -->
+	<select id="findByserialNum" resultMap="findByserialNumMap">
+		select * from (
+		select
+		o.posorderid,c.name,o.PosID,o.Batch,o.SerialNumber,t.CardTNumber,o.OperationType,o.PosOrderCount,o.CinemaPrice,o.BaoXianResult,CONVERT(varchar(100),
+		o.PosOrderTime, 120) as PosOrderTime,o.PosUserID as
+		posuserid,o.PosOrderPurchaseCount as posorderpurchasecount
+		,o.PosOrderTicketRemainCount as posorderticketremaincount
+		from
+		LKG_PosOrders as
+		o,LKG_Cinemas as c,LKG_CardsTong as t
+		where
+		c.ID =
+		o.CID
+		and
+		o.CardTID =
+		t.CardTID
+		and o.SerialNumber = #{0} and cid = #{1} and
+		posid = #{2}
+		UNION
+		select
+		o.posorderid,c.name,o.PosID,o.Batch,o.SerialNumber,t.CardTNumber,o.OperationType,o.PosOrderCount,o.CinemaPrice,o.BaoXianResult,CONVERT(varchar(100),
+		o.PosOrderTime, 120) as PosOrderTime,o.PosUserID as
+		posuserid,o.PosOrderPurchaseCount as posorderpurchasecount
+		,o.PosOrderTicketRemainCount as posorderticketremaincount
+		from
+		LKG_PosKanPianHuiOrders as
+		o,LKG_Cinemas as c,LKG_CardsTong as t
+		where
+		c.ID =
+		o.CID
+		and
+		o.CardTID =
+		t.CardTID
+		and o.SerialNumber = #{0} and cid =
+		#{1} and posid = #{2} ) as c ORDER BY c.PosOrderTime desc
+	</select>
+	<!-- 根据流水号，时间，手机号查询交易记录 -->
+	<select id="findByTimeAndPhone" resultMap="findByserialNumMap">
+		select * from (
+		select
+		o.posorderid,c.name,o.PosID,o.Batch,o.SerialNumber,t.CardTNumber,o.OperationType,o.PosOrderCount,o.CinemaPrice,o.BaoXianResult,CONVERT(varchar(100),
+		o.PosOrderTime, 120) as PosOrderTime,o.PosUserID as
+		posuserid,o.PosOrderPurchaseCount as posorderpurchasecount
+		,o.PosOrderTicketRemainCount as posorderticketremaincount
+		from
+		LKG_PosOrders as
+		o,LKG_Cinemas as c,LKG_CardsTong as t
+		where
+		c.ID =
+		o.CID
+		and
+		o.CardTID =
+		t.CardTID
+		and o.SerialNumber = #{0} and cid = #{1} and
+		posid = #{2} and PosOrderTime &gt;= #{3} and PosUserID = #{4}
+		UNION
+		select
+		o.posorderid,c.name,o.PosID,o.Batch,o.SerialNumber,t.CardTNumber,o.OperationType,o.PosOrderCount,o.CinemaPrice,o.BaoXianResult,CONVERT(varchar(100),
+		o.PosOrderTime, 120) as PosOrderTime,o.PosUserID as
+		posuserid,o.PosOrderPurchaseCount as posorderpurchasecount
+		,o.PosOrderTicketRemainCount as posorderticketremaincount
+		from
+		LKG_PosKanPianHuiOrders as
+		o,LKG_Cinemas as c,LKG_CardsTong as t
+		where
+		c.ID =
+		o.CID
+		and
+		o.CardTID =
+		t.CardTID
+		and o.SerialNumber = #{0} and cid =
+		#{1} and posid = #{2} and PosOrderTime &gt;= #{3} and PosUserID = #{4} ) as c ORDER BY c.PosOrderTime desc
+	</select>
+</mapper>

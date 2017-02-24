@@ -1,0 +1,90 @@
+// 所有主流浏览器都不支持 appearance 属性
+// Firefox2.0+ 支持带 -moz 前缀的属性；Safari6.0+ 和 Chrome4.0+支持带 -webkit 前缀的属性
+// none：  去除系统默认appearance的样式
+//-----------------------------------------------------------------------------
+
+// Webkit下的appearance属性值
+//-----------------------------------------------------------------------------
+// checkbox
+// radio
+// push-button
+// square-button
+// button                               看起来像个按钮，以按钮的风格渲染
+// button-bevel
+// listbox                              看起来像个清单盒子，以listbox风格渲染
+// listitem                             看起来像个清单列表，以listitem风格渲染
+// menulist                             看起来像个下接菜单，以menulist风格渲染
+// menulist-button
+// menulist-text
+// menulist-textfield
+// scrollbarbutton-up
+// scrollbarbutton-down
+// scrollbarbutton-left
+// scrollbarbutton-right
+// scrollbartrack-horizontal
+// scrollbartrack-vertical
+// scrollbarthumb-horizontal
+// scrollbarthumb-vertical
+// scrollbargripper-horizontal
+// scrollbargripper-vertical
+// slider-horizontal
+// slider-vertical
+// sliderthumb-horizontal
+// sliderthumb-vertical
+// caret
+// searchfield                          看起来像个搜索框，以searchfield风格渲染
+// searchfield-decoration
+// searchfield-results-decoration
+// searchfield-results-button
+// searchfield-cancel-button
+// textfield
+// textarea                             看起来像个文本域，以textarea风格渲染
+
+// Firefox下的appearance属性值
+//-----------------------------------------------------------------------------
+// none
+// button
+// checkbox
+// checkbox-container
+// checkbox-small
+// dialog
+// listbox
+// menuitem
+// menulist
+// menulist-button
+// menulist-textfield
+// menupopup
+// progressbar
+// radio
+// radio-container
+// radio-small
+// resizer
+// scrollbar
+// scrollbarbutton-down
+// scrollbarbutton-left
+// scrollbarbutton-right
+// scrollbarbutton-up
+// scrollbartrack-horizontal
+// scrollbartrack-vertical
+// separator
+// statusbar
+// tab
+// tab-left-edge Obsolete
+// tabpanels
+// textfield
+// textfield-multiline
+// toolbar
+// toolbarbutton
+// toolbox
+// tooltip
+// treeheadercell
+// treeheadersortarrow
+// treeitem
+// treetwisty
+// treetwistyopen
+// treeview
+// window
+
+@mixin appearance($value) {
+  @include prefixer(appearance, $value, webkit moz);
+}

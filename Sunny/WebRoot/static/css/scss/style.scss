@@ -1,0 +1,58 @@
+// 此文件属于CSS样式编译
+//
+// 如果需要修改，请到theme.scss主题样式文件修改
+// ------------------------------------------------------------------------------------
+
+// 终端编译命令
+// 进入文件：      cd desktop/微信公众号/ybt/weixin/scss
+
+// 压缩自动化模式： sass --watch style.scss:../css/custom.css --style compressed
+// 标准自动化模式： sass --watch style.scss:../css/custom.css --style expanded
+
+
+@import
+
+// 颜色样式文件
+// ------------------------------------------------------------------------------------
+   "theme"
+
+// CSS3文件
+// ------------------------------------------------------------------------------------
+,  "css3/media"
+,  "css3/prefixer"
+,  "css3/opacity"
+,  "css3/placeholder"
+,  "css3/flex"
+,  "css3/column"
+,  "css3/border"
+,  "css3/gradient"
+,  "css3/background"
+,  "css3/shadow"
+,  "css3/filter"
+,  "css3/transform"
+,  "css3/transition"
+,  "css3/animation"
+,  "css3/hyphens"
+,  "css3/appearance"
+,  "css3/user_select"
+,  "css3/text_overflow"
+,  "css3/triangle"
+
+// 重置SUI
+// ------------------------------------------------------------------------------------
+,  "sui/list-block"
+,  "sui/buttons_tab"
+,  "sui/bar_nav"
+,  "sui/content_block"
+
+
+// 自定义板块
+// ------------------------------------------------------------------------------------
+,  "components/card"
+,  "components/clear_ba"
+,  "components/img_mask"
+,  "components/button"
+
+
+
+;

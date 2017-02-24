@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.NoticesMapper">
+	<resultMap id="BaseResultMap" type="Notices">
+		<id column="nid" property="nid" jdbcType="INTEGER" />
+		<result column="nauthor" property="nauthor" jdbcType="VARCHAR" />
+		<result column="ntitle" property="ntitle" jdbcType="VARCHAR" />
+		<result column="ncontent" property="ncontent" jdbcType="NVARCHAR" />
+		<result column="releasetime" property="releasetime" jdbcType="TIMESTAMP" />
+		<result column="isremove" property="isremove" jdbcType="BIT" />
+		<result column="removetime" property="removetime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<resultMap id="selectNotReadByNoticeMap" type="map">
+		<id column="nid" property="nid" />
+		<result column="ntitle" property="ntitle" />
+		<result column="isread" property="isread" />
+		<result column="rownum" property="rownum" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		nid, nauthor, ntitle, ncontent, releasetime, isremove,
+		removetime
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from APP_Notices
+		where nid = #{nid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		APP_Notices
+		where nid = #{nid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="Notices">
+		insert into APP_Notices (nid,
+		nauthor, ntitle,
+		ncontent, releasetime, isremove,
+		removetime)
+		values
+		(#{nid,jdbcType=INTEGER}, #{nauthor,jdbcType=VARCHAR},
+		#{ntitle,jdbcType=VARCHAR},
+		#{ncontent,jdbcType=NVARCHAR},
+		#{releasetime,jdbcType=TIMESTAMP}, #{isremove,jdbcType=BIT},
+		#{removetime,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="Notices">
+		insert into APP_Notices
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="nid != null">
+				nid,
+			</if>
+			<if test="nauthor != null">
+				nauthor,
+			</if>
+			<if test="ntitle != null">
+				ntitle,
+			</if>
+			<if test="ncontent != null">
+				ncontent,
+			</if>
+			<if test="releasetime != null">
+				releasetime,
+			</if>
+			<if test="isremove != null">
+				isremove,
+			</if>
+			<if test="removetime != null">
+				removetime,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="nid != null">
+				#{nid,jdbcType=INTEGER},
+			</if>
+			<if test="nauthor != null">
+				#{nauthor,jdbcType=VARCHAR},
+			</if>
+			<if test="ntitle != null">
+				#{ntitle,jdbcType=VARCHAR},
+			</if>
+			<if test="ncontent != null">
+				#{ncontent,jdbcType=NVARCHAR},
+			</if>
+			<if test="releasetime != null">
+				#{releasetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isremove != null">
+				#{isremove,jdbcType=BIT},
+			</if>
+			<if test="removetime != null">
+				#{removetime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="Notices">
+		update APP_Notices
+		<set>
+			<if test="nauthor != null">
+				nauthor = #{nauthor,jdbcType=VARCHAR},
+			</if>
+			<if test="ntitle != null">
+				ntitle = #{ntitle,jdbcType=VARCHAR},
+			</if>
+			<if test="ncontent != null">
+				ncontent = #{ncontent,jdbcType=NVARCHAR},
+			</if>
+			<if test="releasetime != null">
+				releasetime = #{releasetime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isremove != null">
+				isremove = #{isremove,jdbcType=BIT},
+			</if>
+			<if test="removetime != null">
+				removetime = #{removetime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where nid = #{nid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="Notices">
+		update APP_Notices
+		set nauthor = #{nauthor,jdbcType=VARCHAR},
+		ntitle =
+		#{ntitle,jdbcType=VARCHAR},
+		ncontent = #{ncontent,jdbcType=NVARCHAR},
+		releasetime = #{releasetime,jdbcType=TIMESTAMP},
+		isremove =
+		#{isremove,jdbcType=BIT},
+		removetime = #{removetime,jdbcType=TIMESTAMP}
+		where nid = #{nid,jdbcType=INTEGER}
+	</update>
+	<select id="selectNotReadByNotice" resultMap="selectNotReadByNoticeMap">
+		select * from
+		(select ROW_NUMBER() OVER ( ORDER BY n.releasetime DESC ) AS
+		rownum ,
+		n.nid,n.ntitle,isnull(b.noticeid,0)
+		as isread,n.isremove from APP_Notices as n LEFT JOIN (select * from
+		APP_Noticelogs as n where n.Userid =
+		#{0}) as b on b.noticeid = n.nid
+		and n.isremove >0 GROUP BY nid,n.ntitle,releasetime,b.noticeid,n.isremove) as temp where temp.isremove > 0  and temp.rownum BETWEEN ${page} and
+		${pagesize}
+	</select>
+	<select id="findLast" resultType="Notices">
+		select top 1 * from APP_Notices order by releasetime desc;
+	</select>
+</mapper>

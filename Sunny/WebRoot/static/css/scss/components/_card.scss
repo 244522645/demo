@@ -1,0 +1,293 @@
+// 祝福卡
+// ------------------------------------------------------------------------------------
+
+.greeting-card{
+  background-color: $brand-white;
+  padding: 0.75rem;
+  @include box-shadow(0 0 5px rgba(0,0,0,.1));
+  
+  // 标题容器
+  >.header{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background:url(../img/icon/header-icon.jpg) no-repeat top center / 100% 50% content-box;
+    // 标题
+    > span{
+      position: absolute;
+      left: 50%;
+      bottom: 1rem;
+      font-size: 24px;
+      color:$brand-red;
+      @include translateX(-50%);
+    }
+  }
+
+  // 照片
+  > .content-img{
+    position: relative;
+    padding: 1rem;
+    > span{
+      z-index:2;
+      position: absolute;
+      display:block;
+      top:50%;
+      left:50%;
+      height:2.5rem;
+      width:2.5rem;
+      font-size:12px;
+      background-color:rgba(255,255,255,.5);
+      @include transform(translate(-50%,-50%) rotate(45deg));
+      @include transform-origin(center center);
+      > a{
+        text-align:center;
+        display:block;
+        color:$brand-red;
+        line-height:2.5rem;
+        @include opacity(60);
+        @include rotate(-45deg);
+        @include transform-origin(center center);
+      }
+    }
+    > img{width: 100%;}
+  }
+
+  // 卡片底部
+  > .footer{
+    padding-top:.5rem;
+    text-align: center;
+    // 用户头像
+    > .user-icon{
+      width: 1.5rem;
+      opacity: .5;
+    }
+    // 接收人、祝福语、更多模板链接
+    > .footer-link > a{
+      margin-top: 0;
+      font-size: 14px;
+      color: $brand-sub-title;
+    }
+    // 付款按钮
+    > .button-pay{
+      border: 1px solid $brand-red;
+      border-radius: 10rem;
+      padding: 2px 2rem;
+      font-size: 14px;
+      color:$brand-red;
+      background-color: transparent;
+    }
+    // 底部修饰图片
+    > .bg-img{
+      margin: 1.5rem 0 .5rem;
+      width: 100%;
+      height: 20px;
+      background:url(../img/icon/footer-icon.jpg) no-repeat center center / 100% 100% content-box;
+    }
+  }
+
+  @include max-screen(376px) {
+    >.header{           height: 90px;}
+    >.header > span{    font-size: 22px;}
+    > .footer {
+      > .footer-title{  font-size: 18px;}
+      > .button-pay{    font-size: 12px;}
+      > .bg-img{        margin: 1.5rem 0 .3rem;}
+    }
+  }
+
+  @include max-screen(321px) {
+    >.header{                                        height: 70px;}
+    >.header  > span{                                font-size: 18px;bottom: 10px;}
+    > .footer {
+      > .user-icon{                                  width: 1.4rem;}
+      > .card-list-block li:first-child .item-title,
+      > .card-list-block li:first-child input{       font-size:18px !important;}
+      > .card-list-block li:last-child textarea{     height:2rem !important;font-size:12px !important;}
+      > .footer-link > a{                            font-size: 12px;}
+      > .button-pay{                                 font-size: 12px;}
+      > .bg-img{                                     margin: 1rem 0 .3rem;}
+    }
+  }
+}
+
+// 祝贺卡
+// 颜色 和 背景图片的更换
+// ------------------------------------------------------------------------------------
+.brand-orange{
+  .header > span,
+  .footer-title > span,
+  .card-list-block li:first-child .item-title,
+  .card-list-block li:first-child input,
+  .card-list-block li:last-child textarea,
+  .content-img > span > a,
+  .button-pay{     color:$brand-orgin-dark !important;}
+
+  >.header{        background-image:url(../img/icon/kx_t.jpg);}
+  > .footer{
+    > .button-pay{ border-color:$brand-orgin-dark;}
+    > .bg-img{     background:url(../img/icon/kx_b.jpg) no-repeat center center / 100% 100% content-box;}
+  }
+}
+.brand-purple{
+  .header > span,
+  .footer-title > span,
+  .card-list-block li:first-child .item-title,
+  .card-list-block li:first-child input,
+  .card-list-block li:last-child textarea,
+  .content-img > span > a,
+  .button-pay{     color:$brand-purple !important;}
+
+  >.header{        background-image:url(../img/icon/zh_t.jpg);}
+  > .footer{
+    > .button-pay{ border-color:$brand-purple;}
+    > .bg-img{     background:url(../img/icon/zh_b.jpg) no-repeat center center / 100% 100% content-box;}
+  }
+}
+
+// 裸图
+// ------------------------------------------------------------------------------------
+.card-mobile{
+  position: relative;
+  height:640px;
+  overflow:hidden;
+  > .pay{
+    z-index:2;
+    position: absolute;
+    display:block;
+    top:50%;
+    left:50%;
+    height:2.5rem;
+    width:2.5rem;
+    font-size:16px;
+    background-color:rgba(255,255,255,.3);
+    @include transform(translate(-50%,-50%) rotate(45deg));
+    @include transform-origin(center center);
+    > a{
+      text-align:center;
+      display:block;
+      color:$brand-red;
+      line-height:2.5rem;
+      @include opacity(60);
+      @include rotate(-45deg);
+      @include transform-origin(center center);
+    }
+  }
+  >.tip-modal{
+    position: absolute;
+    bottom:5em;
+    z-index: 2;
+    padding:0 1em;
+    color:$brand-white;
+    background-color:rgba(0,0,0,.3);
+    p{font-size:13px;}
+    &:before{
+      position: absolute;
+      bottom:0;
+      left:20%;
+      @include translate(-50%,100%);
+      @include triangle(bottom,15px,rgba(0,0,0,.3));
+    }
+  }
+  >.bar-menu{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 1em;
+    z-index: 990;
+    padding:0 20%;
+    text-align:center;
+    > a.menu-item{
+      color:$brand-white;
+      > p{margin-top:0;}
+      &.active{
+        color:$brand-red;
+        > p{display:none;}
+      }
+    }
+  }
+  >img{
+    position: absolute;
+    width:auto;
+    height:100%;
+    @include animation(toLeft 20s ease 1s);
+  }
+  @include max-screen(376px){
+    height:580px;
+  }
+  @include max-screen(321px){
+    height:480px;
+  }
+}
+// 动画
+@include keyframes(toLeft) {
+    0% {left:0;}
+  100% {left:-100%;}
+}
+
+
+// 文字列表
+// ------------------------------------------------------------------------------------
+
+.card{
+  margin-top:0;
+  margin-left:0;
+  margin-right:0;
+  border-radius:0;
+  box-shadow:none;
+  .card-content > .card-content-inner > h3{
+    margin-top:0;
+    color:$brand-red;
+  }
+  .card-content > .card-content-inner > p{
+    color:$brand-sub-title;
+  }
+  @include max-screen(321px){
+    .card-content > .card-content-inner > h3{ font-size:14px;}
+    .card-content > .card-content-inner > p{  font-size:12px;}
+  }
+}
+
+
+// 拍立得贺卡效果
+// ------------------------------------------------------------------------------------
+.polaroid-template{
+  width: 100%;
+  padding: .75rem;
+  background-color: #fff;
+  overflow: hidden;
+  >.template-top{
+    position: relative;
+    >img{width: 100%;}
+    >.text{
+      position: absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:.5rem;
+      >h3{
+        margin-bottom:0;
+        font-size:12px;
+        color:#fff;
+      }
+      >p{
+        margin-top:3px;
+        font-size:12px;
+        color:#fff;
+        @include text-shadow(0 0 5px rgba(0,0,0,.5));
+      }
+    }
+  }
+  >.card-content{
+    vertical-align: top;
+    >h3{
+      margin-bottom:0;
+      color:$brand-red;
+      >span{
+        &:first-child{margin-right:.3rem;color:$brand-title;}
+        &:last-child{margin-left:.3rem;color:$brand-title;}
+      }
+    }
+    >.list-block .item-input>textarea{font-size:15px;height: 2.5rem;padding-left:0;}
+    >.footer-label{margin-bottom:0;}
+  }
+}

@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+/***
+index2
+***/
+.login {
+	background-color: #fff !important;
+}
+
+.login .content ul li a {
+	color: #0E3A56;
+}
+
+.btn {
+	background-color: #f9625b;
+}
+
+.login .logo {
+	margin: 0 auto;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	text-align: center;
+	background-color: #EF4141 !important;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.login .content {
+	padding-bottom: 30px;
+}
+
+.login .content ul li {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	background: #F0F6FA;
+}
+
+.login .content ul li:nth-child(2), li:nth-child(3), li:nth-child(4) {
+	text-align: center;
+}
+
+.login .content ul li i {
+	background: #EF4141 !important;
+}
+
+.login .content ul li button {
+	border: solid 1px;
+}
+
+.content .table thead tr th {
+	text-align: center;
+	font-family: 'Open Sans';
+	font-weight: normal;
+}
+
+.content .table tbody tr th {
+	text-align: center;
+	font-family: 'Open Sans';
+	font-weight: 200;
+}
+
+.tables {
+	background: red;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.btn:HOVER {
+	background-color: red !important;
+}

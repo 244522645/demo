@@ -1,0 +1,40 @@
+/***
+index2
+***/
+.login {
+	background-color: #FDF7F2 !important;
+}
+
+.login .content ul li a {
+	color: #0E3A56;
+	background: #fff;
+}
+
+.login .logo {
+	margin: 0 auto;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	background-color: #EF4141 !important;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.login .content {
+	background: #F5F0F0;
+}
+
+.login .content ul li {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.ver-inline-menu li i {
+	color: #ff0000;
+	background: #fff !important;
+}
+
+/* .ver-inline-menu   li a {
+	background: linear-gradient(90deg, #FFFFFF 30%, #E27B7B, #886310);
+} */

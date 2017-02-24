@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.UserErrorMapper">
+	<resultMap id="BaseResultMap" type="UserError">
+		<id column="errorID" property="errorid" jdbcType="INTEGER" />
+		<result column="errorUserID" property="erroruserid" jdbcType="CHAR" />
+		<result column="errorTime" property="errortime" jdbcType="TIMESTAMP" />
+		<result column="errorType" property="errortype" jdbcType="INTEGER" />
+		<result column="errorNum" property="errornum" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		errorID, errorUserID, errorTime, errorType, errorNum
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from APP_CinemaUserError
+		where errorID = #{errorid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		APP_CinemaUserError
+		where errorID = #{errorid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="UserError">
+		insert into
+		APP_CinemaUserError (errorID, errorUserID, errorTime,
+		errorType,
+		errorNum)
+		values (#{errorid,jdbcType=INTEGER},
+		#{erroruserid,jdbcType=CHAR},
+		#{errortime,jdbcType=TIMESTAMP},
+		#{errortype,jdbcType=INTEGER}, #{errornum,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="UserError">
+		insert into APP_CinemaUserError
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="errorid != null">
+				errorID,
+			</if>
+			<if test="erroruserid != null">
+				errorUserID,
+			</if>
+			<if test="errortime != null">
+				errorTime,
+			</if>
+			<if test="errortype != null">
+				errorType,
+			</if>
+			<if test="errornum != null">
+				errorNum,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="errorid != null">
+				#{errorid,jdbcType=INTEGER},
+			</if>
+			<if test="erroruserid != null">
+				#{erroruserid,jdbcType=CHAR},
+			</if>
+			<if test="errortime != null">
+				#{errortime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="errortype != null">
+				#{errortype,jdbcType=INTEGER},
+			</if>
+			<if test="errornum != null">
+				#{errornum,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="UserError">
+		update APP_CinemaUserError
+		<set>
+			<if test="erroruserid != null">
+				errorUserID = #{erroruserid,jdbcType=CHAR},
+			</if>
+			<if test="errortime != null">
+				errorTime = #{errortime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="errortype != null">
+				errorType = #{errortype,jdbcType=INTEGER},
+			</if>
+			<if test="errornum != null">
+				errorNum = #{errornum,jdbcType=INTEGER},
+			</if>
+		</set>
+		where errorID = #{errorid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="UserError">
+		update
+		APP_CinemaUserError
+		set errorUserID = #{erroruserid,jdbcType=CHAR},
+		errorTime = #{errortime,jdbcType=TIMESTAMP},
+		errorType =
+		#{errortype,jdbcType=INTEGER},
+		errorNum = #{errornum,jdbcType=INTEGER}
+		where errorID = #{errorid,jdbcType=INTEGER}
+	</update>
+	<select id="findByID" parameterType="UserError" resultType="UserError">
+		select
+		<include refid="Base_Column_List" />
+		from
+		APP_CinemaUserError
+		where
+		errorUserID = #{0}
+		and
+		errorType = #{1}
+		and
+		<![CDATA[ 
+		errorTime  >= #{2}
+		]]>
+		order by Errortime desc
+	</select>
+	<delete id="deleteByUsername">
+		delete from APP_CinemaUserError where
+		errorUserID =
+		#{0}
+		and
+		errorType = #{1}
+	</delete>
+	<select id="countByerror" parameterType="UserError" resultType="java.lang.Integer">
+		select
+		count(*)
+		from
+		APP_CinemaUserError
+		where
+		errorUserID = #{0}
+		and
+		errorType = #{1}
+		and
+		<![CDATA[ 
+		errorTime  >= #{2}
+		]]>
+	</select>
+	<select id="countByCard" resultType="java.lang.Integer">
+		select
+		count(*)
+		from
+		APP_CinemaUserError
+		where
+		errorUserID = #{userID}
+		<if test="errorType != null">
+			and errorType = #{errorType}
+		</if>
+		and
+		<![CDATA[ 
+		errortime  >= #{time}
+		]]>
+		and
+		errornum = #{errornum}
+
+	</select>
+	<!-- 修改符合条件的用户错误记录 -->
+	<delete id="updateUserError">
+		update APP_CinemaUserError set
+		errortype = '4'
+		where errortype = '0' and
+		errortime between #{0} and #{1} and
+		erroruserid = #{2}
+	</delete>
+</mapper>

@@ -1,0 +1,11 @@
+// 清理SUI设置的伪元素 before 和 after 产生的效果
+// ------------------------------------------------------------------------------------
+
+.clear-ba{
+  &::before,
+  &::after{
+    content:"";
+    height:0 !important;
+    border:0 !important;
+  } 
+}

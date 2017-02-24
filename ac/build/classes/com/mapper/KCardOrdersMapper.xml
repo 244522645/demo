@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.KCardOrdersMapper">
+	<!-- 查询用户消费记录的返回结果集 -->
+	<resultMap type="Map" id="findOrdersByUserMap">
+		<result column="OrdersDate" property="OrdersDate" />
+		<result column="CardKindsName" property="CardKindsName" />
+		<result column="DianShu" property="DianShu" />
+		<result column="DanJia" property="DanJia" />
+		<result column="ShuLiang" property="ShuLiang" />
+		<result column="Money" property="Money" />
+		<result column="StartCardNum" property="StartCardNum" />
+		<result column="EndCardNum" property="EndCardNum" />
+		<result column="ClosingDate" property="ClosingDate" />
+		<result column="InvoiceID" property="InvoiceID" />
+		<result column="UserName" property="UserName" />
+		<result column="CardOrdersType" property="CardOrdersType" />
+	</resultMap>
+	<!-- 开卡添加 -->
+	<insert id="addCardOrders" parameterType="KCardOrders">
+		INSERT INTO
+		K_CardOrders ( [OrdersDate], [SalesPerson],
+		[InvoiceTitle],
+		[CardKindsID], [DianShu], [DanJia], [ShuLiang],
+		[Money],
+		[StartCardNum], [EndCardNum], [ClosingDate], [InvoiceID],
+		[InvoiceMoney], [InvoiceContent], [InvoiceCode], [DaiLi], [UserID],
+		[CardNumHead], [VoucherNum], [OperationRecord], [CardOrdersType],
+		[KanLiJia], [Memo]) VALUES ( #{odersDate}, #{salesPerson},
+		#{invoiceTitle}, #{cardKindsId}, #{dianShu},#{danJia},
+		#{shuLiang},
+		#{money}, #{startCardNum}, #{endCardNum}, #{closingDate},
+		#{invoiceId}, #{invoiceMoney},#{invoiceContent},#{invoiceCode},
+		#{daiLi},
+		#{userId}, #{cardNumHead}, #{voucherNum},#{operationRecord},
+		#{cardOrdersType},#{kanLiJia},#{memo});
+	</insert>
+	<!-- 查询用户下面的开卡记录 -->
+	<select id="findByUserCardOrders" resultType="KCardOrders">
+	<![CDATA[
+		select * from K_CardOrders where cardKindsId = #{0} and startCardNum <= #{1} and endCardNum >= #{1} and  startCardNum <= #{2} and endCardNum >= #{2}  and cardOrdersType = 1
+	]]>
+	</select>
+
+	<!-- 查询用户下面的退卡记录 -->
+	<select id="findByQuitCardorders" resultType="KCardOrders">
+	<![CDATA[
+		select * from K_CardOrders where cardKindsId = #{0} and startCardNum <= #{1} and endCardNum >= #{1}  and  startCardNum <= #{2} and endCardNum >= #{2} and cardOrdersType = #{3}
+	]]>
+	</select>
+	<!-- 退卡记录添加 -->
+	<insert id="addQuitCardOrders" parameterType="KCardOrders">
+
+
+	</insert>
+	<!-- 根据开始和结束号段查询用户的开卡记录里面有没有记录 -->
+	<select id="findOrdersByCardNum" resultType="KCardOrders">
+	<![CDATA[
+	select * from K_CardOrders where startCardNum <= #{0} and endCardNum >= #{0}  and  startCardNum <= #{1} and endCardNum >= #{1} and cardOrdersType = #{2}
+	]]>
+	</select>
+
+	<!-- 查询用户的消费记录 -->
+	<select id="findOrdersByUser" resultMap="findOrdersByUserMap">
+
+		SELECT TOP ${rows}
+		a.OrdersDate,c.CardKindsName,a.DianShu,a.DanJia,a.ShuLiang,a.Money,a.StartCardNum,a.EndCardNum,a.ClosingDate,a.InvoiceID,u.UserName,a.CardOrdersType
+		FROM
+		K_CardOrders as a,K_Users as u,K_CardKinds as c WHERE a.ID
+		NOT
+		IN(SELECT
+		TOP
+		${page} ID
+		FROM
+		K_CardOrders ORDER BY
+		ID desc)
+		and a.UserID = u.ID
+		and a.CardKindsID = c.ID
+		<if test='startTime != null and startTime != ""'>
+			<![CDATA[and a.OrdersDate >= #{startTime}]]>
+		</if>
+		<if test='endTime != null and endTime != ""'>
+			<![CDATA[and a.OrdersDate <= #{endTime}]]>
+		</if>
+		<if test="userType!=0">
+			and a.userid = ${userType}
+		</if>
+		ORDER BY
+		a.ID desc
+	</select>
+
+	<!-- 统计用户消费的个数 -->
+	<select id="countOrdersByUser" resultType="Integer">
+		select count(id) from K_CardOrders where
+		1 = 1
+		<if test='startTime != null and startTime != ""'>
+			<![CDATA[and OrdersDate >= #{startTime}]]>
+		</if>
+		<if test='endTime != null and endTime != ""'>
+			<![CDATA[and OrdersDate <= #{endTime}]]>
+		</if>
+		<if test="userType!=0">
+			and userid = ${userType}
+		</if>
+	</select>
+
+
+
+</mapper>

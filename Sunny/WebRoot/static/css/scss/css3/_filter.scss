@@ -1,0 +1,54 @@
+// filter
+// =====================================================================================
+// -------------------------------------------------------------------------------------
+
+
+// <filter-function> [<filter-function>]* | none
+@mixin filter($function...){
+  @include prefixer(filter, $function, webkit moz);
+}
+
+@mixin filter-blur($px){
+  @include prefixer(filter, blur($px), webkit moz);
+}
+
+@mixin filter-grayscale($percent: 100%){
+  @include prefixer(filter, grayscale($percent), webkit moz);
+}
+
+@mixin filter-drop-shadow($shadow...){
+  @include prefixer(filter, drop-shadow($shadow), webkit moz);
+}
+
+// @include url("filepath");
+@mixin filter-url($url){
+  @include prefixer(filter, url(#{$url}), webkit moz);
+}
+
+@mixin filter-brightness($value: 0.5){
+  @include prefixer(filter, brightness($value), webkit moz);
+}
+
+@mixin filter-contrast($value){
+  @include prefixer(filter, contrast($value), webkit moz);
+}
+
+@mixin filter-hue-rotate($value: 90deg){
+  @include prefixer(filter, hue-rotate($value), webkit moz);
+}
+
+@mixin filter-invert($value: 100%){
+  @include prefixer(filter, invert($value), webkit moz);
+}
+
+@mixin filter-opacity($value){
+  @include prefixer(filter, opacity($value), webkit moz);
+}
+
+@mixin filter-saturate($value){
+  @include prefixer(filter, saturate($value), webkit moz);
+}
+
+@mixin filter-sepia($value: 100%){
+  @include prefixer(filter, sepia($value), webkit moz);
+}

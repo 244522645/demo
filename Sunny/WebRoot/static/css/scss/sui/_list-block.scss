@@ -1,0 +1,31 @@
+// 祝福卡表单
+// ------------------------------------------------------------------------------------
+
+.card-list-block {
+  margin:0;
+
+  > ul > li{
+
+    // 第一个表单即接收人
+    &:first-child > .item-content{
+      margin-left:20%;
+      width:60%;
+
+      > .item-inner > .item-title,
+      > .item-inner > .item-input > input{
+        font-size:20px;
+        color:$brand-red;
+      }
+
+    }
+    
+    // 第二个表单祝福语
+    &:last-child > .item-content > .item-inner > .item-input > textarea{
+      height:3rem;
+      font-size:14px;
+      color:$brand-red;
+    }
+
+  }
+
+}

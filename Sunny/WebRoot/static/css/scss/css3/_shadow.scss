@@ -1,0 +1,15 @@
+// 阴影设置
+// =====================================================================================
+// -------------------------------------------------------------------------------------
+
+// box-shadow:[投影方式] X轴偏移量 Y轴偏移量 阴影模糊半径 阴影扩展半径 阴影颜色
+
+@mixin box-shadow($box-shadow...) {
+  @include prefixer(box-shadow, $box-shadow, webkit moz);
+}
+
+// text-shadow: X轴偏移量 Y轴偏移量 阴影模糊半径 阴影颜色
+
+@mixin text-shadow($text-shadow...) {
+  @include prefixer(text-shadow, $text-shadow, webkit moz);
+}

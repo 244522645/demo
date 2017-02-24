@@ -1,0 +1,30 @@
+// prefixer
+// 在属性前添加前缀
+// 默认这里将只输出webkit前缀和标准（如果要开启opera的可以将$prefixForOpera设置为true）
+//-----------------------------------------------------------------------------
+@mixin prefixer($property, $value, $prefixes: webkit) {
+
+  @each $prefix in $prefixes {
+    @if      $prefix == webkit { -webkit-#{$property}: $value;}
+    @else if $prefix == moz {    -moz-#{$property}: $value;}
+    @else if $prefix == ms {     -ms-#{$property}: $value;}
+    @else if $prefix == o {      -o-#{$property}: $value;}
+  }
+  @if true { #{$property}: $value;}
+}
+
+// prefixer-value
+// 在属性后的值前面添加前缀
+// 默认这里将输出webkit前缀，moz前缀和标准
+//-----------------------------------------------------------------------------
+
+@mixin prefixer-value($property, $value, $prefixes: webkit) {
+
+  @each $prefix in $prefixes {
+    @if      $prefix == webkit  {#{$property}: -webkit-#{$value};}
+    @else if $prefix == moz {    #{$property}: -moz-#{$value};}
+    @else if $prefix == ms {     #{$property}: -ms-#{$value};}
+    @else if $prefix == o {      #{$property}: -o-#{$value};}
+  }
+  @if true { #{$property}: $value;}
+}

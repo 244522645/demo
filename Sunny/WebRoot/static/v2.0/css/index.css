@@ -1,0 +1,1352 @@
+/*---------------------------------------首页---------------------------------------*/
+*{
+	margin: 0 auto;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+}
+.v2 .content-block{
+	margin: 0;
+}
+.v2 .yanjing{
+	width:1.4rem ;
+	height: 1.25rem;
+	    position: absolute;
+    right: 3%;
+    margin-top: -9rem;
+}
+.v2 .page, .page-group{
+	background: #EFEFEF;
+}
+.v2 .content-block{
+	padding: 0;
+}
+
+.v2 .searchbar{
+	height: 2.85rem;
+	padding: 0.55rem 0rem;
+	border-bottom:0.11rem solid #dcdcdc ;
+	background: #efefef;
+	padding-left: 4%;
+	padding-right: 4%;
+}
+.v2 .searchbar .search-input input{
+	height: 1.75rem;
+	border: 0;
+}
+.v2 .button.button-fill{
+	height: 1.75rem;
+	background: #FFFFFF;
+	line-height: 1.75rem;
+}
+.v2 .yvdin img{
+	line-height: 1.75rem;
+	width: 1.07rem;
+	height: 1.02rem;
+}
+.v2 .yvdin{
+	float: left;
+	    padding-top: 0.25rem;
+}
+.v2 .button.button-fill{
+	color: #989898;
+}
+
+.v2 .content{
+	float: left;
+}
+.v2 .swp{
+	height: 4.9rem;
+	padding: 0.65rem;
+	overflow: hidden;
+	    margin-bottom: 0.5rem;	background: #FFFFFF;
+}
+.v2 .swiper-container {
+    width: 100%;
+    height: 3.6rem;
+}  
+.v2 p{
+	margin: 0;
+}
+.v2 .Title{
+	color: #d30000;
+	font-family: "Microsoft YaHei";
+	font-size: 0.85rem;
+}
+.v2 .body{
+	color: #959595;
+	font-size: 0.7rem;
+	font-family: "Microsoft YaHei";
+	padding: 0.2rem;
+}
+.v2 .tabs{
+
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+.v2 .list{
+	width: 100%;
+	height: auto;
+}
+.v2 .list img{
+	width: 100%;
+}
+.v2 .ThatDay{
+	width: 50%;
+	margin-top: -3rem;
+	color:#FFFFFF ;
+	margin-left: 0.6rem;
+	font-size: 0.85rem;
+	font-family: "Microsoft YaHei";
+
+}
+.v2 .address{
+	width: 50%;
+	color:#FFFFFF;
+	margin-left: 0.6rem;
+	font-family: "Microsoft YaHei";
+	font-size: 0.8rem;
+}
+.v2 .data{
+	margin-top: -1rem;
+	width: 25%;
+	color:#FFFFFF;
+	font-family: "Microsoft YaHei";
+	font-size: 0.6rem;
+	position: absolute;
+	z-index: 1;
+	right:4%
+}
+.v2 .swiper-container{
+	padding: 0;
+}
+/*------------------------------------------生日管理-----------------------------------------*/
+.v2 .TopWriting{
+	height: 1.65rem;
+	width: 100%;
+	color: #f5263a;
+	font-size: 0.65rem;
+	background: #FFFFFF;
+	line-height: 1.65rem;
+	padding-left: 0.6rem;
+	border-bottom: solid #d9d9d9 0.05rem;
+}
+.v2 .information{
+	width: 100%;
+	height: 3.6rem;
+	background: #FFFFFF;
+	font-size: 0.7rem;
+	font-family: "Microsoft YaHei";
+	border-bottom: solid #d9d9d9 0.05rem;
+}
+.v2 .kuangkuang{
+	float: left;
+	
+}
+.v2 .kuangkuang img{
+	width: 0.95rem;
+	height: 0.95rem;
+	margin-top: 0.2rem;
+	}
+.v2 .relationship{
+	float: left;
+}
+.v2 .relationship1{
+	padding: 1.1rem 0.5rem;
+	border-right:solid 0.05rem #f1f1f1;
+}
+.v2 .information2{
+	padding-top: 0.7rem;
+	padding-left: 1.05rem;
+
+}
+.v2 .information3{
+	padding-top: 1.2rem;
+}
+.v2 .Hischart{
+	width: 1.4rem;
+	height: 1.4rem;
+	position: absolute;
+	z-index: 1;
+	left: 4rem;
+    margin-top: 1rem;
+}
+.v2 .Hischart img{
+	width: 1.4rem;
+	height: 1.4rem;
+}
+.v2 .kongbai{
+	text-align: center;
+	margin-top: 35%;
+}
+.v2 .page .bir{
+	background: #f5263a;
+	text-align: center;
+	color: #ffffff;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	border: 0;
+}
+.v2 .shanchu{
+	border-left: solid #FFFFFF 0.05rem;
+}
+.v2 .bir a span{
+	color: #ffffff;
+}
+/*----------------------------地址选择------------------------------*/
+.v2 .TopWriting1{
+	height: 2.6rem;
+	width: 100%;
+	color: #f5263a;
+	font-size: 0.65rem;
+	background: #FFFFFF;
+	padding-left: 0.6rem;
+	padding-top: 0.25rem;
+}
+.v2 .Letter{
+	background: #EFEFEF;
+	border-bottom:solid #d6d6d6 0.05rem ;
+	padding-left: 0.55rem;
+	height: 1.25rem;
+	line-height: 1.25rem;
+	font-family: "Microsoft YaHei";
+	font-size: 0.75rem;
+	color:#999999
+}
+.v2 .ShootingAddress{
+	background: #FFFFFF;
+	height: 2.35rem;
+	border-bottom: solid #eaeaea 0.05rem;
+	line-height: 2.35rem;
+	color: #333333;
+	font-family: "Microsoft YaHei";
+	font-size: 0.75rem;
+	padding-left: 0.75rem;
+}
+.v2 .Selected{
+	color: red;
+}
+.v2 .sidebar{
+	width: 2rem;
+	text-align: center;
+	position: fixed;
+    right: 1%;
+    font-size: 0.6rem;
+   color:#bababa;
+       height: 100%;
+           top: 1rem;
+              line-height: 0.94rem;
+              z-index: 10;
+}
+
+.v2 .sidebar a{
+	width: 2rem;
+	text-align: center;
+	color:#bababa;
+	padding-left: 0.5rem;
+	padding-right:0.5rem ;
+	font-weight: 800;
+}
+/*-----------------------------生日--------------------------------------*/
+.v2 .TopWri{
+		height: 2.15rem;
+	width: 100%;
+	color: #f5263a;
+	font-size: 0.65rem;
+	background: #FFFFFF;
+	line-height: 1.65rem;
+	padding-left: 0.6rem;
+	margin: 0 auto;
+	text-align: center;
+	border-bottom: solid 0.5rem #EFEFEF;
+}
+.v2 .birthdaymain{
+	background: #FFFFFF;
+}
+.v2 .birthday{
+	padding-right: 0.65rem;
+}
+.v2 .list-block .birthday1{
+	position: static;
+}
+.v2 .Sign{
+	float: left;
+	height: 2rem;
+}
+.v2 .Sign img{
+	width: 1.2rem;
+	height: 1.2rem;
+	vertical-align:middle;
+	margin-left: 0.8rem;
+	margin-right: 0.8rem;
+}
+.v2 .work .word1{
+	line-height: 2rem;
+	width: 40%;
+}
+.v2 .weibu1 .word1{
+	line-height: 2rem;
+	width: 40%;
+}
+.v2 .item-content .work1{
+	padding: 0;
+	border: solid #e7e7e7 0.05rem;
+	margin-bottom: 1.05rem;
+}
+.v2 .weibu1{
+	border-bottom: solid 0.05rem #e7e7e7;
+}
+.v2 .item-content .work{
+	padding: 0;
+	border-top: solid #e7e7e7 0.05rem;
+	border-left: solid #e7e7e7 0.05rem;
+	border-right: solid #e7e7e7 0.05rem;
+	margin-bottom: 1.05rem;
+}
+.word1_name{
+	height: 2rem;
+	line-height: 2rem;
+	
+}
+/*-----------------------------预约阳光副本---------------------------*/
+.v2 .details{
+	height: 1.65rem;
+	line-height: 1.65rem;
+	width: 100%;
+	padding-left: 0.6rem;
+	padding-right: 0.6rem;
+}
+.v2 .you{
+	float: right;
+}
+.v2 .details a{
+	color: #333333;
+	font-family: "Microsoft YaHei";
+	font-size: 0.8rem;
+}
+.v2 .detailscContent{
+	width: 100%;
+	height: 9rem;
+	background: #FFFFFF;
+	padding-left:1.6rem ;
+	padding-top:0.85rem ;
+}
+.v2 .row .xinxixi{
+	line-height: 1.7rem;
+	margin: 0;
+}
+.v2 .row .xinxiname{
+	line-height: 1.7rem;
+}
+.v2 .xinxiform{
+	margin-bottom: 0.5rem;
+}
+.v2 .AddressInformation{
+	width: 100%;
+	height: 5.5rem;
+	background: #FFFFFF;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 0.8rem;
+	padding-bottom: 0.8rem;
+}
+.v2 .AddressInformation1{
+
+	text-align: center;
+	line-height: 1.45rem;
+	border-radius: 2rem;
+}
+.v2 .AddressInformation2{
+	padding-bottom: 0.8rem;
+}
+.v2 .wishes{
+	flex: 1;
+	background: #FFFFFF;
+	height: 8.65rem;
+}
+.v2 .col-20 img{
+	width: 1rem;
+	height: 1rem;
+	float: right;
+	margin-top: 0.5rem;
+}
+.v2 .wishes1{
+	height:100%;
+}
+.v2 .wishes2{
+	height:100%;
+}
+.v2 .wishes2 textarea{
+	border: 0;;
+}
+.v2 .Checkout{
+	width: 100%;
+	background: #FFFFFF;
+		height: 2.95rem;
+	line-height: 2.95rem;
+	color: #666666;
+	font-size: 0.9rem;
+	font: "Microsoft YaHei";     
+	position: absolute;
+    bottom: 0.05rem;
+    padding-left: 5%;
+}
+.v2 .bar-zidong{
+	height: 2.95rem;
+	border: 0;
+}
+.v2 .purchase{
+	width: 6.4rem;
+	height: 2rem;
+	float: right;
+	background: #f5263a;
+	color: #FFFFFF;
+		font-size: 0.9rem;
+	font-family: "Microsoft YaHei";
+	line-height: 2rem;
+	text-align: center;
+	border-radius: 0.3rem;
+	    margin-top: 3%;
+    margin-right: 4%;
+}
+.v2 .Checkout a{
+	color: red;
+}
+.v2 .birthdaymain {
+	width: 100%;
+}
+.v2 .qvchuhueixian{
+	position: static;
+}
+.v2 .shengrxinxi{
+	background: #FFFFFF;
+}
+
+.v2 .popup-xuanz{
+	background-color: transparent;
+}
+.v2 .popup-bangding{
+	background-color: transparent;
+}
+.v2 .popup-youxiang{
+	background-color: transparent;
+}
+.v2 .popup-chenggong{
+	background-color: transparent;
+}
+.v2 .popup-shibai{
+	background-color: transparent;
+}
+.v2 .heikuai{
+	width: 100%;
+	height: 100%;
+	background: #000000;
+	opacity: 0.5;
+}
+.v2 .baikuang{
+	width: 10.85rem;
+	height:7.6rem;
+background: #FFFFFF;
+position: absolute;
+z-index: ;
+left: 0;
+top: 8rem;
+right: 0;
+bottom: 0;
+text-align: center;
+} 
+.v2 .baikuang1{
+	width: 15rem;
+	height:7.6rem;
+background: #FFFFFF;
+position: absolute;
+z-index: ;
+left: 0;
+top: 8rem;
+right: 0;
+bottom: 0;
+text-align: center;
+} 
+.v2 .baikuang img{
+	width: 5.62rem;
+	height: 3.8rem;
+	margin-top: 1.05rem;
+}
+.v2 .queding{
+	width: 8.5rem;
+	height: 1.75rem;
+	background: #f5263a;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 1.75rem;
+	border-radius: 0.3rem;
+}
+.v2 .quedingannniu{
+	width: 8.5rem;
+	height: 1.75rem;
+	background: #f5263a;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 1.75rem;
+	border-radius: 0.3rem;
+}
+.v2 .meibang{
+	color: #f5263a;
+	font-family: "Microsoft YaHei";
+	font-size: 0.6rem;
+	margin-top: 0.3rem;
+}
+.v2 .kahao{
+	height: 1.65rem;
+	margin: 0.5rem;
+	font-size: 0.7rem;
+		border: solid #EFEFEF 0.05rem;
+	line-height: 1.65rem;
+}
+.v2 .nima{
+		height: 1.65rem;
+	margin: 0.5rem;
+	font-size: 0.7rem;
+	border: solid #EFEFEF 0.05rem;
+	line-height: 1.65rem;
+}
+.v2 .kahao input{
+	border: 0;
+	height: 1.65rem;
+}
+.v2 .nima input{
+	border: 0;
+	height: 1.65rem;
+}
+.v2 .quedinganniu{
+	width: 8.55rem;
+	height: 1.75rem;
+	background: #f5263a;
+	color: #FFFFFF;
+	border-radius:0.5rem ;
+	    position: absolute;
+    bottom: 8%;
+    left: 0;
+    right: 0;
+}
+
+/*---------------------------------我的-----------------------------------------*/
+.v2 .touxiangname{
+	width: 100%;
+    height: 7.9rem;
+    background: url(../img/tu.png);
+    background-size: 100%;
+    text-align: center;
+}
+.v2 .touxiang img{
+	    width: 3.15rem;
+    height: 3.15rem;
+    margin-top: 1.25rem;
+    border-radius:5rem ;
+}
+.v2 .mingzi {
+    font-size: 0.9rem;
+    color: #FFFFFF;
+}
+.v2 .jinian {
+    width: 100%;
+    height: 2.5rem;
+    border-top: #dedede solid 0.05rem;
+    border-bottom: #dedede solid 0.05rem;
+    margin-top: 0.5rem;
+    background: #FFFFFF;
+}
+.v2 .jinian1 {
+    margin-top: 0.6rem;
+    margin-left: 1rem;
+    float: left;
+}
+.v2 .ka {
+    margin-left: 0.95rem;
+    line-height: 2.5rem;
+}
+.v2 .shuliang {
+    margin-right: 1rem;
+    line-height: 2.5rem;
+    float: right;
+}
+.v2 .jinian1 img {
+    width: 1.37rem;
+}
+
+
+.v2 .guanli {
+    width: 100%;
+    height: 2.5rem;
+    border-top: #dedede solid 0.05rem;
+    border-bottom: #dedede solid 0.05rem;
+    margin-top: 0.5rem;
+    background: #FFFFFF;
+}
+.v2 .jinian1 {
+    margin-top: 0.6rem;
+    margin-left: 1rem;
+    float: left;
+}
+.v2 .ka {
+    margin-left: 0.95rem;
+    line-height: 2.5rem;
+    color: #333333;
+    
+}
+.v2 .shuliang {
+    margin-right: 1rem;
+    line-height: 2.5rem;
+    float: right;
+}
+.v2 .jinian1 img {
+    width: 1.37rem;
+}
+.v2 .guangka{
+	    width: 100%;
+    height: 2.5rem;
+    border-top: #dedede solid 0.05rem;
+    border-bottom: #dedede solid 0.05rem;
+    margin-top: 0.5rem;
+    background: #FFFFFF;
+}
+.v2 .kaoyou{
+	float: right;
+	margin-right: 4%;
+	color: #333333;
+	line-height: 2.5rem;
+}
+/*----------------------------------阳光卡------------------------------*/
+.v2 .huaduo img{
+	width: 2.05rem;
+	height: 2.15rem;
+}
+.v2 .huaduo{
+	width: 2.05rem;
+	margin: 0;
+	float: left;
+}
+.v2 .wenzi{
+width: 8rem;
+    margin: 0;
+    float: left;
+    text-align: center;
+    line-height: 1.2rem;
+}
+.v2 .kaka{
+	height: 3.7rem;
+}
+.v2 .yanggguangka{
+	margin: 0;
+	float: right;
+}
+.v2 .yanggguangka img{
+width: 3.4rem;
+}
+.v2 .bar .bangding{
+	background: #f5263a;
+	color: #FFFFFF;
+	font-size: 0.9rem;
+	font-family: "microsoft yahei";
+	border-right: solid #FFFFFF 0.05rem;
+}
+.v2 .bar .shuom{
+	background: #f5263a;
+	color: #FFFFFF;
+	font-size: 0.9rem;
+	font-family: "microsoft yahei";
+}
+.v2 .kongbai{
+	margin-bottom:1rem ;
+}
+/*----------------------我的礼物--------------------------*/
+.v2 .xuanxiangk{
+	margin-top: 0.5rem;
+}
+.v2 .zhaopian img{
+	width: 100%;
+	height: 100%;
+	
+}
+.v2 .zhaopian{
+	height: 9.95rem;
+	padding: 0.5rem;
+}
+.v2 .dizhi{
+	position: absolute;
+	margin-top: -1.5rem;
+	color: #FFFFFF;
+	font-size: 0.55rem;
+	font-family: "Microsoft YaHei";
+	margin-left: 4%;
+}
+.v2 .paisshijian{
+	position: absolute;
+	margin-top: -1.5rem;
+	color: #FFFFFF;
+	font-size: 0.55rem;
+	font-family: "Microsoft YaHei";
+	right: 10%;
+}
+.v2 .liebiao{
+	color: #000000;
+}
+.v2 .rchu{
+	background: #FFFFFF;
+	    margin: 0.5rem;
+	    box-shadow: 0.05rem 0.05rem 5px #888888;
+}
+.v2 .zhufuhua{
+	height: 6.1rem;
+	font-size: 0.7rem;
+	color:#333333;
+	margin: 0.75rem;
+}
+.v2 .zhufuhua p{
+	margin-top: -0.7rem;
+}
+.v2 .shuming{
+	text-align: right;
+	margin-top: 0.75rem;
+	padding-top: 0.45rem;
+border-top: dashed #9d9d9d 0.05rem;
+}
+.v2 .weisongdao{
+	background: url(../img/weisongdao.png) no-repeat;
+	background-position: right;
+	background-width:
+}
+.v2 .buttons-tab .button.active{
+	color:#333333;
+    border-color: #f5263a;
+}
+.v2 .shuoming{
+	background-color: #fbfbfb;
+    width: 92%;
+position: absolute;
+top: 3.5rem;
+left: 4%;
+right: 4%;
+padding:1rem ;
+box-shadow: 0.05rem 0.05rem 5px #888888;
+}
+.v2 .mingxi{
+	background-color: #fbfbfb;
+    width: 92%;
+position: absolute;
+top: 3.5rem;
+
+left: 4%;
+right: 4%;
+
+box-shadow: 0.05rem 0.05rem 5px #888888;
+}
+.v2 .mingxi1 img{
+	float: left;
+	width: 2.5rem;
+}
+.v2 .zengyv{
+	float: left;
+	margin-left: 4%;
+}
+.v2 .mingxi1{
+    height: 4rem;
+border-bottom: solid #dfdfdf 0.05rem;
+    padding-top: 0.75rem;
+    padding-left: 0.5rem;
+    color: #333333;
+    font-size: 0.75rem;
+    background:#FFFFFF;
+}
+/*--------------------下载---------------------*/
+.v2 .tishi{
+	height: 1.3rem;
+	line-height: 1.3rem;
+	background: #FFFFFF;
+	color: red;
+	font-size: 0.6rem;
+	font-family: "Microsoft YaHei";
+	padding-left: 4%;
+	
+}
+.v2 .xiazaianniu{
+	width: 1.17rem;
+	height: 1.17rem;
+	position: absolute;
+    right: 9%;
+    margin-top: -2.5rem;
+	}
+.v2 .bai{
+	background: url(../img/baibian.png);
+	background-size:100% ;
+}
+.v2 .hong{
+	background: url(../img/hongbian.png);
+	background-size:100% ;
+}
+.v2 .baikuang1{
+	width: 15.15rem;
+	height:10.15rem;
+background: #FFFFFF;
+position: absolute;
+z-index: ;
+left: 0;
+top: 8rem;
+right: 0;
+bottom: 0;
+text-align: center;
+padding: 0.5rem;
+border-radius: 0.5rem;
+} 
+.v2 .bangdingchenggong{
+	background: none;
+}
+.v2 .shuruyx{
+	height: 2.4rem;
+    border: solid 0.05rem #666666;
+    line-height: 2.4rem;
+    margin-bottom: 1rem;
+}
+.v2 .shuruyx input{
+	border: 0;
+	width: 65%;
+    height: 2rem;
+}
+.v2 .fasong{
+	color: red;
+	font-size: 0.6rem;
+	margin-bottom: 1rem;
+}
+.v2 .yanzheng{
+		color: red;      
+	font-size: 0.7rem;
+	font-family:"microsoft yahei" ;
+	height: 1.4rem;
+}
+.v2 .fasong img{
+	width: 9.3rem;
+	height: 8.2rem;
+}
+/*-------------------------------------绑定阳光卡----------------------*/
+.v2 .zixi{
+	height: 2rem;
+	line-height: 2rem;
+	color: #999999;
+	font-size: 0.8rem;
+	font-family: "microsoft yahei";
+	padding-left: 8%;
+	border-bottom: solid 0.05rem #d8d8d8;
+}
+.v2 .txkh{
+	height: 2.7rem;
+	width: 100%;
+	background: #FFFFFF;
+	border-bottom: solid #d8d8d8 0.05rem; 
+	line-height: 2.7rem;
+	overflow: hidden;
+}
+.v2 .khwz{
+	float: left;
+	padding-left: 1rem ;
+	
+}
+.v2 .khnr{
+	float: left;
+	width: 77%;
+}
+.v2 .khnr input{
+	border: 0;
+}
+.v2 #kahaoneorong{
+	border: 0;
+	width: 100%;
+	height: 2.2rem;
+}
+.v2 #mimaneirong{
+	border: 0;
+	width: 100%;
+	height: 2.2rem;
+}
+.v2 .tijiaoanniu{
+	width: 70%;
+	height: 2.4rem;
+	background: #f5263a;  
+	text-align: center;
+	margin-top: 1.6rem; 
+	line-height: 2.4rem;
+	color: #FFFFFF; 
+	border-radius: 0.2rem; 
+}
+.v2 .baikuang2{
+	width: 13.2rem;
+	height:8.2rem;
+	background: #FFFFFF;
+position: absolute;
+z-index: ;
+left: 0;
+top: 8rem;
+right: 0;
+bottom: 0;
+text-align: center;
+border-radius: 0.2rem;
+}
+.v2 .baikuang2 img{
+	width: 12.2rem;
+	margin-top: 0.5rem;
+}
+.v2 .cuowu img{
+	width: 9.22rem;
+	height: 6.72rem;
+	margin-top:0.5rem ;
+}
+.v2 .duei img{
+	width: 13.68rem;
+	height: 8.15;
+}
+/*-------------分享-----------------------*/
+.v2 .yuding-share .daojishi{
+	height: 7.45rem;
+	background: url(../img/banner.png);
+	background-size:100% ;
+	color: #FFFFFF;
+	text-align: center;
+	padding-top: 0.5rem;
+}
+.v2 .yuding-share .songming{
+	font-size: 1.15rem;
+	font-family: "microsoft yahei";
+	padding-top: 1rem;
+}
+.v2 .yuding-share .tianshu{
+	font-size: 2.5rem;
+	font-family: "microsoft yahei";
+}
+.v2 .yuding-share .fenxiangtou{
+	text-align: center;
+	padding: 0.2rem;
+}
+.v2 .yuding-share .fenxiangtou img {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 2rem;
+}
+.v2 .yuding-share .liwu{
+	margin-left:8% ;
+	margin-right:8% ;
+	border-bottom: dashed #666666 0.05rem;
+	border-top: dashed #666666 0.05rem;
+	text-align: center;
+	padding-top: 0.5rem;
+padding-bottom: 0.5rem;
+}
+.v2 .yuding-share .liwu span{
+	font-size: 0.85rem;
+	font-family: "microsoft yahei";
+	
+}
+.v2 .yuding-share .liwu img{
+	width: 6.75rem;
+	    margin-top: 0.8rem;
+}
+.v2 .yuding-share .shenmi{
+	text-align: center;
+	padding-top: 0.5rem;
+	font-size: 0.65rem;
+}
+.v2 .saoma1{
+	width: 10.55rem;
+	font-size: 0.65rem;
+	padding-top: 1rem;
+}
+.v2 .yuding-share .saoma1 img{
+	width: 3.45rem;
+	float: right;
+}
+.v2 .yuding-share .saoma1 span{
+	float: left;
+	    padding-top: 0.5rem;
+}
+.v2 .yuding-share .heidi{
+	background: url(../img/heikuangk.png);
+	background-size:100% ;
+	width: 7.15rem;
+	height: 3.2rem;
+	margin-top: 0.5rem;
+}
+.v2 .yuding-share .shubai{
+	width: 2.3rem;
+	height: 3.05rem;
+	background: url(../img/shuzibj.png);
+	background-size:100% ;
+	float: left;
+	margin-top: 0.05rem;
+    margin-left: 0.05rem;
+    line-height: 3.05rem;
+}
+.v2 .yuding-share .shushi{
+		width: 2.3rem;
+	height: 3.05rem;
+	background: url(../img/shuzibj.png);
+	background-size:100% ;
+	float: left;
+	margin-top: 0.05rem;
+    margin-left: 0.05rem;
+    line-height: 3.05rem;
+}
+.v2 .yuding-share .shuge{
+		width: 2.3rem;
+	height: 3.05rem;
+	background: url(../img/shuzibj.png);
+	background-size:100% ;
+	float: left;
+	margin-top: 0.05rem;
+    margin-left: 0.05rem;
+    line-height: 3.05rem;
+}
+.v2 .yuding-share .saoma{
+	height: 5rem;
+}
+.v2 .yuding-share .zhuanfa{
+	width: 8.2rem;
+	height: 2.3rem;
+	line-height: 2.3rem;
+	text-align: center;
+	background: red;
+	color: #FFFFFF;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+.v2 .yuding-share .zhuanfa img{
+	width: 2rem;
+	height: 2rem;
+}
+.v2 .heikuai img{
+	width: 8.5rem;
+	height: 9.15rem;
+	position: absolute;
+	right: 10%;
+	top: 5%;
+}
+.v2 .diandian{
+	width: 2.45rem;
+	height: 2.45rem;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 2.45rem;
+	background: #41c6f2;
+	border: solid #FFFFFF 0.05rem;
+	border-radius: 50%;
+	position: absolute;
+	top: 41%;
+    left: 12%;
+	font-size: 1rem;
+	font-family: "microsoft yahei";
+}
+.v2 .jiji{
+	width: 2.45rem;
+	height: 2.45rem;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 2.45rem;
+	background: #41c6f2;
+	border: solid #FFFFFF 0.05rem;
+	border-radius: 50%;
+	position: absolute;
+	top: 40%;
+    left: 31%;
+	font-size: 1rem;
+	font-family: "microsoft yahei";
+}
+.v2 .fenfen{
+	width: 2.45rem;
+	height: 2.45rem;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 2.45rem;
+	background: #41c6f2;
+	border: solid #FFFFFF 0.05rem;
+	border-radius: 50%;
+	position: absolute;
+	top: 43%;
+	    left: 50%;
+	font-size: 1rem;
+	font-family: "microsoft yahei";
+}
+.v2 .xiangxiang{
+	width: 2.45rem;
+	height: 2.45rem;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 2.45rem;
+	background: #41c6f2;
+	border: solid #FFFFFF 0.05rem;
+	border-radius: 50%;
+	position: absolute;
+	    top: 39%;
+    left: 70%;
+	font-size: 1rem;
+	font-family: "microsoft yahei";
+}
+/*-------------------倒计时一天-----------------------*/
+.v2 .yuding-count .daojishi1{
+	text-align: center;
+	height: 10rem;
+}
+.v2 .yuding-count .daojishi{
+	height: 7.45rem;
+	background: url(../img/banner.png);
+	background-size: 100%;
+	color: #FFFFFF;
+	text-align: center;
+	padding-top: 0.5rem;
+}
+.v2 .yuding-count .songming{
+	font-size: 1.15rem;
+	font-family: "microsoft yahei";
+	padding-top: 1rem;
+}
+.v2 .yuding-count .tianshu{
+	font-size: 2.5rem;
+	font-family: "microsoft yahei";
+}
+.v2 .yuding-count .fenxiangtou{
+	text-align: center;\n
+	padding: 0.5rem;
+}
+.v2 .yuding-count .fenxiangtou img {
+	width: 2.5rem;
+	height: 2.5rem;
+		border-radius: 2rem;
+}
+.v2 .yuding-count .liwu{
+	margin-left:8% ;
+	margin-right:8% ;
+	border-bottom: dashed #666666 0.05rem;
+	border-top: dashed #666666 0.05rem;
+	text-align: center;
+	padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+}
+
+.v2   .liwu img{
+	width: 6.75rem;
+	height: 5rem;
+}
+.v2   .shenmi{
+	text-align: center;
+	padding-top: 0.5rem;
+	font-size: 0.75rem;
+}
+.v2  .saoma1{
+	width: 10.55rem;
+	font-size: 0.65rem;
+	padding-top: 1rem;
+}
+.v2  .saoma1 img{
+	width: 3.05rem;
+	float: right;
+}
+.v2  .saoma1 span{
+	float: left;
+	    padding-top: 0.5rem;
+}
+.v2 .liwu .geitishi img{
+	width: 3.9rem;
+    height: 5.65rem;
+    margin-left: 5%;
+        margin-top: 0.5rem;
+}
+ .v2  .tishi1{
+    text-align: left;
+ } 
+.v2 .geitishi img{
+	float: left;
+}
+.v2 .geitishi span{
+	float: left;
+}
+.v2 .tishi1{
+		padding-top: 1rem;
+}
+.v2 .geitishi{
+	width: 100%;
+	height: 6.2rem;
+	line-height: 1.5rem;
+
+}
+.v2 .jiexiao{
+	font-size: 0.8rem;
+	font-family: "microsoft yahei";
+	color: #ff0000;
+}
+.v2 .liwu .geitishi .tishi1{
+	font-size:0.7rem ;
+	font-family: "microsoft yahei";
+	
+}
+.v2 .diliweiz{
+	padding: 0 0.5rem;
+	color:#ff0000;
+}
+.v2 .diliweiz span.diliweiz-citys{
+	font-size: 0.7rem;
+}
+
+.v2 .tianshu {
+    font-size: 2.5rem;
+    font-family: "microsoft yahei";
+    }
+    .v2 .heidi {
+    background: url(../img/heikuangk.png);
+    background-size: 100%;
+    width: 7.15rem;
+    height: 3.2rem;
+    margin-top: 0.5rem;
+    }
+    .v2 .shubai{
+    	width: 2.3rem;
+    height: 3.05rem;
+    background: url(../img/shuzibj.png);
+    background-size: 100%;
+    float: left;
+    margin-top: 0.05rem;
+    margin-left: 0.05rem;
+    line-height: 3.05rem;
+    }
+    .v2 .shushi{
+    	width: 2.3rem;
+    height: 3.05rem;
+    background: url(../img/shuzibj.png);
+    background-size: 100%;
+    float: left;
+    margin-top: 0.05rem;
+    margin-left: 0.05rem;
+    line-height: 3.05rem;
+    }
+    .v2 .shuge{
+    	width: 2.3rem;
+    height: 3.05rem;
+    background: url(../img/shuzibj.png);
+    background-size: 100%;
+    float: left;
+    margin-top: 0.05rem;
+    margin-left: 0.05rem;
+    line-height: 3.05rem;
+    }
+/*---------------------------马上揭晓----------------*/
+.v2 .liucheng{
+	margin-left:8% ;
+	margin-right:8% ;
+	border-bottom: dashed #666666 0.05rem;
+	border-top: dashed #666666 0.05rem;
+	text-align: center;
+	padding-top: 0.2rem;
+	padding-bottom: 0.5rem;
+}
+.v2 .shengrkl{
+	font-size: 0.85rem;
+	font-family: "microsoft yahei";
+	color: red;
+}
+.v2 .liuc img{ 
+	width: 4.5rem;
+	height: 3.25rem;
+	margin:0.25rem;
+	}
+.v2 .liuc{
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+.v2 .liuchengzi{
+	font-size: 0.6rem;
+	line-height: 1.2rem;
+	text-align: left;
+	padding-left: 8%;
+}
+.v2 .daodal{
+	font-size: 0.85rem;
+	font-family: "microsoft yahei";
+	color: red;
+	margin-top: 0.25rem;
+}
+.v2 .lingqvliwu{
+	width: 8.1rem;
+	height: 1.6rem;
+	color: #FFFFFF;
+	background: red;
+	color: #FFFFFF;
+	line-height: 1.6rem;
+}
+.v2 .liulankapian{
+	background: #FFFFFF;
+	margin: 0.5rem;
+	border-radius:0.2rem;
+}
+.v2 .liulankapian img{
+	width: 100%;
+	overflow: hidden;
+		border-radius:0.2rem 0.2rem 0rem 0rem;
+}
+
+/*---------------------------------------------领取后的页面----------------------------------*/
+.v2 .dizizhufu{
+	font-size: 0.65rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	font-family: "microsoft sans serif";
+	margin-top: 0.85rem;
+	padding-left:0.5rem ;
+}
+.v2 .liulankapian{
+	 box-shadow: 0.05rem 0.05rem 5px #888888;
+}
+.v2 .dizizhufu span{
+	float: right;
+}
+.v2 .zhufuyv1{
+	margin-top: 0.85rem;
+	line-height: 1.3rem;
+	padding-bottom:1rem ;
+	border-bottom: dashed 0.05rem #c6c6c6;
+}
+.v2 .zengsongren{
+	height: 2rem;
+	line-height: 2rem;
+}
+.v2 .zengsongren span{
+	margin-right: 4%;
+}
+.v2 .bar .fenxianggeipengy{
+	background: red;
+	color: #FFFFFF;
+}
+ .v2 .xiazaigaoqing{
+ 	width: 1.75rem;
+ 	height: 1.75rem;
+ 	    position: absolute;
+    right: 7%;
+    margin-top: -3rem;
+ }
+ .v2 .xiazaigaoqing img{
+ 	width: 100%;
+ }
+ .v2 .zhufu_hua{
+ width: 100%;
+    height: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+ } 
+ 
+.v2 .content_addRelation{
+	position: static;	
+} 
+
+.v2 .beijingtupin{
+	    		background: url(../img/beijinq.jpg);
+	    		background-size:100% 100% ;
+	    	}
+	    	.v2 .dueiqi{
+	    	    padding-left: 1.2rem;
+	    	}
